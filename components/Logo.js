@@ -12,7 +12,7 @@ function getRandomColor() {
 
 const constants = {
   MIN_COUNT: 6,
-  MAX_COUNT: 80,
+  MAX_COUNT: 44,
   FROM_COLOR: {
     r: 0,
     g: 0,
@@ -61,17 +61,20 @@ export default class Logo extends Component {
       toColor: getRandomColor(),
     });
     clearInterval(this.timer);
-    this.timer = setInterval(this.tickOver, 40);
+    this.timer = setInterval(this.tickOver, 20);
   }
 
   onLeave() {
     clearInterval(this.timer);
-    this.timer = setInterval(this.tickLeave, 40);
+    this.timer = setInterval(this.tickLeave, 20);
   }
+
+  throttledSetRandomToColor = _.throttle(() => this.setState({ toColor: getRandomColor() }), 100)
 
   tickOver() {
     const count = this.state.count;
     if (count === constants.MAX_COUNT) {
+      this.throttledSetRandomToColor();
       return;
     }
     this.setState({ count: count + 1 });

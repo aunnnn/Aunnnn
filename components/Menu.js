@@ -17,12 +17,11 @@ const Menu = ({ menu }) => (
       .inline-div a {
         text-decoration: none;
         color: #303030;
-        margin: auto 0.4em;
+        margin: auto 8px auto 0;
       }
 
       .inline-div a:hover {
-        color: blue;
-        background-color: yellow;
+        background-color: #EEF2B6;
       }
 
     `}</style>
