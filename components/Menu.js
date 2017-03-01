@@ -5,7 +5,7 @@ const Menu = ({ menu }) => (
   <div className="inline-div">
     {
       menu.map(({ path, title }) => (
-        <Link prefetch href={path}>{`${title}`}</Link>
+        <Link prefetch href={path} key={path}>{`${title}`}</Link>
       ))
     }
     <style>{`
@@ -17,11 +17,11 @@ const Menu = ({ menu }) => (
       .inline-div a {
         text-decoration: none;
         color: #303030;
-        margin: auto 8px auto 0;
+        margin: auto 12px auto 0;
       }
 
       .inline-div a:hover {
-        background-color: #EEF2B6;
+        background-color: yellow;
       }
 
     `}</style>

@@ -69,7 +69,7 @@ export default class Logo extends Component {
     this.timer = setInterval(this.tickLeave, 20);
   }
 
-  throttledSetRandomToColor = _.throttle(() => this.setState({ toColor: getRandomColor() }), 100)
+  throttledSetRandomToColor = _.throttle(() => this.setState({ toColor: getRandomColor() }), 250)
 
   tickOver() {
     const count = this.state.count;
@@ -128,7 +128,8 @@ export default class Logo extends Component {
           }
 
           .logo {
-            padding-top: 24px;
+            padding-top: 64px;
+            padding-bottom: 24px;
           }
         `}</style>
       </div>
