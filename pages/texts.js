@@ -2,9 +2,14 @@ import React, { Component } from 'react';
 import Page from '../components/Page';
 
 export default () => {
+  const texts = [
+    'What is creative?',
+    'Should we think before paint?',
+    'Axioms of life',
+  ];
   return (
     <Page title="Texts">
-      <div>It will be written. Soon. CD is awesome!!! This should work, please. Yes!</div>
+      { texts.map(t => <a>{t}</a>)}
     </Page>
   );
 };

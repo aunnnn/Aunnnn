@@ -128,7 +128,7 @@ export default class Logo extends Component {
           }
 
           .logo {
-            padding-top: 64px;
+            padding-top: 56px;
             padding-bottom: 24px;
           }
         `}</style>
