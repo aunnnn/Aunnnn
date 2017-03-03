@@ -3,13 +3,13 @@ import Page from '../components/Page';
 
 export default () => {
   const texts = [
-    'What is creative?',
+    'What is creativity?',
     'Should we think before paint?',
     'Axioms of life',
   ];
   return (
     <Page title="Texts">
-      { texts.map(t => <a>{t}</a>)}
+      { texts.map(t => <p>{t}</p>)}
     </Page>
   );
 };
