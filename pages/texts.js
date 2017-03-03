@@ -4,7 +4,7 @@ import Page from '../components/Page';
 export default () => {
   return (
     <Page title="Texts">
-      <div>It will be written. Soon. CD is awesome!!! This should work, please.</div>
+      <div>It will be written. Soon. CD is awesome!!! This should work, please. Yes!</div>
     </Page>
   );
 };
