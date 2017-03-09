@@ -30,7 +30,7 @@ export default () => {
 
         a {
           text-decoration: none;
-          color: grey;
+          color: #404040;
           display: block;
           padding: 4px 0;
         }

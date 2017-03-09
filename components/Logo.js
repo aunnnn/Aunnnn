@@ -11,8 +11,8 @@ function getRandomColor() {
 }
 
 const constants = {
-  MIN_COUNT: 6,
-  MAX_COUNT: 44,
+  MIN_COUNT: 5,
+  MAX_COUNT: 12,
   FROM_COLOR: {
     r: 0,
     g: 0,
@@ -74,7 +74,7 @@ export default class Logo extends Component {
   tickOver() {
     const count = this.state.count;
     if (count === constants.MAX_COUNT) {
-      this.throttledSetRandomToColor();
+      // this.throttledSetRandomToColor();
       return;
     }
     this.setState({ count: count + 1 });
@@ -89,12 +89,12 @@ export default class Logo extends Component {
     this.setState({ count: count - 1 });
   }
 
-  textForCount = n => `Au${Array(n).join('n')}`
+  textForCount = n => `Au${Array(n).join('n')}.`
 
   lerp = (From, To, t) => From + (t * (To - From))
 
   colorForCount = (n) => {
-    if (n === 6) {
+    if (n === constants.MIN_COUNT) {
       return 'blue';
     }
     const MIN = constants.MIN_COUNT;
