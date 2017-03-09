@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
+import shortid from 'shortid';
 import Page from '../components/Page';
 
-export default () => {
-  const imgs = [
+class Images extends Component {
+  onOver = (ind) => {
+    this.setState({
+      activeImageIndex: ind,
+    });
+  }
+
+  imgs = [
     { name: 'Black crowd', path: 'blackcrowd.png' },
     { name: 'Edge of dreams', path: 'edgeofdream.jpg' },
     { name: 'Gloomy forest', path: 'hauntedforest.png' },
@@ -10,24 +17,85 @@ export default () => {
     { name: 'Color processing', path: 'colorprocessing.png' },
   ];
 
-  return (
-    <Page title="Images">
-      <div className="gallery">
-        {
-          imgs.map(({ name, path }) => <img className="center-cropped" alt={path} title={name} src={`static/contents/images/${path}`} />)
-        }
-      </div>
-      <style>{`
-        .center-cropped {
-          object-fit: cover;
-          object-position: center; /* Center the image within the element */
-          height: 180px;
-          width: 180px;
-          margin-right: .3em;
-          border: 1px solid #000;
-          background: white;
-        }
-      `}</style>
-    </Page>
-  );
-};
+  constructor(props) {
+    super(props);
+    this.state = {
+      activeImageIndex: 0,
+    };
+  }
+
+  render() {
+    const { activeImageIndex } = this.state;
+
+    const imgBuilder = ImgClassName => obj => (
+      <img
+        key={`${ImgClassName}-${obj.path}`}
+        className={ImgClassName}
+        alt={obj.path}
+        title={obj.name}
+        src={`static/contents/images/${obj.path}`}
+      />
+    );
+
+    const activeImage = this.imgs[activeImageIndex];
+
+    return (
+      <Page title="Images">
+        <div className="row">
+          <div className="five columns gallery">
+            {
+              this.imgs.map((obj, ind) => <div onMouseEnter={() => this.onOver(ind)}>{imgBuilder('center-cropped')(obj)}</div>)
+            }
+          </div>
+          <div className="seven columns display-panel">
+            <div>
+              { imgBuilder('display-panel-img')(activeImage) }
+              <h6>{activeImage.name}</h6>
+            </div>
+          </div>
+        </div>
+        <style>{`
+          .center-cropped {
+            object-fit: cover;
+            object-position: center; /* Center the image within the element */
+            height: 160px;
+            width: 160px;
+            margin-right: .3em;
+            border: 1px solid #000;
+            background: white;
+          }
+
+          .gallery div {
+            display: inline-block;
+          }
+
+          .display-panel {
+            visibility: hidden;
+          }
+
+          .display-panel img {
+            max-height: 60%;
+            max-width: 400px;
+            position: fixed;
+            border: 1px solid #000;
+          }
+
+          .display-panel h6 {
+            position: fixed;
+            transform: translate(0, -22px);
+          }
+
+
+          /* tablet & upper */
+          @media (min-width: 600px) {
+            .display-panel {
+              visibility: visible;
+            }
+          }
+        `}</style>
+      </Page>
+    );
+  }
+}
+
+export default Images;
