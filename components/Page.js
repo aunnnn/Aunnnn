@@ -3,7 +3,7 @@ import Container from './Container';
 
 const Page = (props) => (
     <Container>
-      {props.title && <h3>{props.title}</h3>}
+      {props.title && <h3><strong>{props.title}</strong></h3>}
       {props.children}
     </Container>
 );

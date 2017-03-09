@@ -4,7 +4,7 @@ import Menu from '../components/Menu';
 
 export default () => {
   const menus = [
-    { path: '/images', title: 'images' },
+    { path: '/images', title: 'images,' },
     { path: '/texts', title: 'texts' },
   ];
   return (

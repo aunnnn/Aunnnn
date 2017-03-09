@@ -1,26 +1,39 @@
 import React from 'react';
 import Link from 'next/link';
+import shortid from 'shortid';
 
 const Menu = ({ menu }) => (
-  <div className="inline-div">
-    {
-      menu.map(({ path, title }) => (
-        <Link prefetch href={path} key={path}>{`${title}`}</Link>
-      ))
-    }
+  <div>
+    <ul>
+      {
+        menu.map(({ path, title }) => (
+          <li>
+            <Link prefetch href={path} key={shortid.generate()}>
+              {`${title}`}
+            </Link>
+          </li>
+        ))
+      }
+    </ul>
     <style>{`
 
-      .inline-div {
-        display: inline-block;
+      ul {
+        list-style: none;
       }
 
-      .inline-div a {
-        text-decoration: none;
+      li {
+        display: inline;
+        padding: 0 12px 0 0;
+      }
+
+      li a {
         color: #303030;
-        margin: auto 12px auto 0;
+        text-decoration: none;
+        font-weight: bold;
       }
 
-      .inline-div a:hover {
+      li a:hover {
+        color: #303030;
         background-color: yellow;
       }
 
