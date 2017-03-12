@@ -5,6 +5,8 @@ import moment from 'moment';
 import _ from 'lodash';
 import Page from '../components/Page';
 
+const BASE_URL = 'https://backend.aunnnn.com';
+
 function checkStatus(res) {
   if (res.error) {
     const err = res.error;
@@ -64,7 +66,7 @@ class admin extends Component {
   }
 
   refreshPosts() {
-    fetch('http://localhost:3001/api/Posts')
+    fetch(`${BASE_URL}/api/Posts`)
     .then(res => res.json())
     .then(checkStatus)
     .then(posts => this.setState({ posts }))
@@ -105,7 +107,7 @@ class admin extends Component {
     this.setState({ loading: true });
 
     const { newPostTitle, newPostContent, newPostSlug } = this.state;
-    fetch(`http://localhost:3001/api/Posts?access_token=${token}`, {
+    fetch(`${BASE_URL}/api/Posts?access_token=${token}`, {
       method: 'POST',
       mode: 'cors',
       headers: {
@@ -149,7 +151,7 @@ class admin extends Component {
 
     if (!confirm('Delete this post?')) { return; }
 
-    fetch(`http://localhost:3001/api/Posts/${id}?access_token=${token}`, {
+    fetch(`${BASE_URL}/api/Posts/${id}?access_token=${token}`, {
       method: 'DELETE',
       mode: 'cors',
       headers: {
