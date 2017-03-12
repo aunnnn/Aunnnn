@@ -4,9 +4,11 @@ import 'isomorphic-fetch';
 import shortid from 'shortid';
 import Page from '../components/Page';
 
+const BASE_URL = 'https://backend.aunnnn.com';
+
 class Texts extends Component {
   static async getInitialProps() {
-    const res = await fetch('http://localhost:3001/api/Posts');
+    const res = await fetch(`${BASE_URL}/api/Posts`);
     const json = await res.json();
     return { posts: json };
   }
