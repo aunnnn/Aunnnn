@@ -7,9 +7,9 @@ const Menu = ({ menu }) => (
     <ul>
       {
         menu.map(({ path, title }) => (
-          <li>
-            <Link prefetch href={path} key={shortid.generate()}>
-              {`${title}`}
+          <li key={shortid.generate()}>
+            <Link prefetch href={path}>
+              <a>{`${title}`}</a>
             </Link>
           </li>
         ))
