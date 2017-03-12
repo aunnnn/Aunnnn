@@ -119,7 +119,7 @@ export default class Logo extends Component {
           onMouseEnter={this.onOver}
           onMouseLeave={this.onLeave}
         >
-          <Link prefetch href="/">{text}</Link>
+          <Link prefetch href="/"><a>{text}</a></Link>
         </p>
         <style>{`
           .logo a {
