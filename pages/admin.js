@@ -41,6 +41,7 @@ class admin extends Component {
     // rendering
     this.NonEmptyTable = this.NonEmptyTable.bind(this);
     this.renderValidatedContent = this.renderValidatedContent.bind(this);
+    this.PostTableRow = this.PostTableRow.bind(this);
 
     // form handling
     this.handleAddNewPost = this.handleAddNewPost.bind(this);
@@ -68,18 +69,6 @@ class admin extends Component {
     .then(checkStatus)
     .then(posts => this.setState({ posts }))
     .catch(alert);
-  }
-
-  PostTableRow(post) {
-    return (
-      <tr key={shortid.generate()}>
-        <td>{post.title}</td>
-        <td>{post.content.length}</td>
-        <td>{post.slug}</td>
-        <td>{moment(post.created_at).fromNow()}</td>
-        <td><a>edit</a></td>
-      </tr>
-    );
   }
 
   NonEmptyTable(posts) {
@@ -110,6 +99,8 @@ class admin extends Component {
       alert('Oops! No token.');
       return;
     }
+
+    if (!confirm('Add new post?')) { return; }
 
     this.setState({ loading: true });
 
@@ -148,12 +139,53 @@ class admin extends Component {
     this.setState({ [event.target.id]: event.target.value });
   }
 
+  handleDeletePost = (id) => {
+    const { token } = this.state;
+
+    if (!token) {
+      alert('Oops! No token.');
+      return;
+    }
+
+    if (!confirm('Delete this post?')) { return; }
+
+    fetch(`http://localhost:3001/api/Posts/${id}?access_token=${token}`, {
+      method: 'DELETE',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        id,
+      }),
+    })
+    .then(res => res.json())
+    .then(checkStatus)
+    .then(res => {
+      alert(`The post is deleted (${res.count}).`);
+      this.refreshPosts();
+    })
+    .catch(alert);
+  }
+
+  PostTableRow(post) {
+    return (
+      <tr key={shortid.generate()}>
+        <td>{post.title}</td>
+        <td>{post.content.length}</td>
+        <td>{post.slug}</td>
+        <td>{moment(post.created_at).fromNow()}</td>
+        <td><button type="button" style={{ color: 'red', borderStyle: 'none' }} onClick={() => this.handleDeletePost(post.id)}>delete</button></td>
+      </tr>
+    );
+  }
+
   renderValidatedContent() {
     const { posts, newPostTitle, newPostContent, newPostSlug } = this.state;
 
     return (
       <div style={{ padding: '20px' }}>
-        <h4><strong>Texts</strong></h4>
+        <h4><strong>Posts</strong> (Texts)</h4>
 
         {/* NEW POST FORM*/}
         <form
@@ -206,6 +238,7 @@ class admin extends Component {
           />
         </form>
 
+        { /* table */ }
         <div>
           <div>
             { posts.length === 0 ?
