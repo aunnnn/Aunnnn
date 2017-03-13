@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Link from 'next/link';
 import 'isomorphic-fetch';
+import _ from 'lodash';
 import shortid from 'shortid';
 import Page from '../components/Page';
 
@@ -20,13 +21,13 @@ class Texts extends Component {
     //   'Axioms of life',
     // ];
 
-    const texts = this.props.posts;
+    const posts = this.props.posts;
 
     return (
       <Page title="Texts">
         <ul>
           {
-            texts.map(t => (
+            _.sortBy(posts, 'created_at').reverse().map(t => (
               <li key={shortid.generate()}>
                 <Link prefetch href="/">
                   {t.title}
