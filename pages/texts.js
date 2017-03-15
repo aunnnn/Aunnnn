@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import {Link} from '../routes';
-import 'isomorphic-fetch';
-import _ from 'lodash';
+import fetch from 'isomorphic-fetch';
 import shortid from 'shortid';
+
+import { Link } from '../routes';
 import Page from '../components/Page';
 import c from '../constants';
 
@@ -15,6 +15,7 @@ class Texts extends Component {
         title: true,
         slug: true,
       },
+      order: 'created_at DESC',
     })}`);
     const json = await res.json();
     return { posts: json };
@@ -26,14 +27,13 @@ class Texts extends Component {
     //   'Should we think before paint?',
     //   'Axioms of life',
     // ];
-
     const posts = this.props.posts;
 
     return (
       <Page title="Texts" htmlTitle="Texts">
         <ul>
           {
-            _.sortBy(posts, 'created_at').reverse().map(t => (
+            posts.map(t => (
               <li key={shortid.generate()}>
                 <Link route="texts" params={{ slug: t.slug }}>
                   {t.title}
