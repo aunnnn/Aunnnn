@@ -40,8 +40,8 @@ class Texts extends Component {
     );
 
     const groupMapper = (group, day) => (
-      <div>
-        <p style={{ fontSize: 10, color: 'grey', margin: 0 }}>
+      <div style={{ marginBottom: '10px' }}>
+        <p style={{ fontSize: 10, color: '#BCC1C2', margin: 0 }}>
           {`${moment(day).format('ll')}`}
         </p>
         <ul>
@@ -58,7 +58,7 @@ class Texts extends Component {
         </div>
         <style>{`
           ul {
-            margin: 8px 0 0 0;
+            margin: 2px 0 0 0px;
             list-style: none;
           }
 
