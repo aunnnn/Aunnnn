@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import fetch from 'isomorphic-fetch';
 import moment from 'moment';
-import { PageWithUpperComponent} from '../components/Page';
+import Link from 'next/link';
+
+import { PageWithUpperComponent } from '../components/Page';
 import c from '../constants';
 
 class Text extends Component {
@@ -18,10 +20,13 @@ class Text extends Component {
         title={post.title}
         htmlTitle={post.title}
         upperComponent={
-          <p style={{ fontSize: 12, margin: '0 0 6px 0', color: 'grey' }}>{moment(post.created_at).format('LL')}</p>
+          <Link prefetch href="/texts">
+            <a style={{ fontSize: 12, margin: '0 0 6px 0', color: 'grey' }}>{moment(post.created_at).format('LL')}</a>
+          </Link>
         }
       >
-        <p>{post.content}</p>
+        <br />
+        <div dangerouslySetInnerHTML={{ __html: post.content }} />
       </PageWithUpperComponent>
     );
   }
