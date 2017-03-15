@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import fetch from 'isomorphic-fetch';
 import shortid from 'shortid';
+import moment from 'moment';
+import _ from 'lodash';
 
 import { Link } from '../routes';
 import Page from '../components/Page';
@@ -27,24 +29,36 @@ class Texts extends Component {
     //   'Should we think before paint?',
     //   'Axioms of life',
     // ];
-    const posts = this.props.posts;
+    const postMapper = t => (
+      <li key={shortid.generate()}>
+        <Link route="texts" params={{ slug: t.slug }}>
+          <a>
+            {t.title}
+          </a>
+        </Link>
+      </li>
+    );
 
+    const groupMapper = (group, day) => (
+      <div>
+        <p style={{ fontSize: 10, color: 'grey', margin: 0 }}>
+          {`${moment(day).format('ll')}`}
+        </p>
+        <ul>
+          {group.map(postMapper)}
+        </ul>
+      </div>
+    );
+
+    const groups = _.groupBy(this.props.posts, obj => moment(obj.created_at).startOf('day').format());
     return (
       <Page title="Texts" htmlTitle="Texts">
-        <ul>
-          {
-            posts.map(t => (
-              <li key={shortid.generate()}>
-                <Link route="texts" params={{ slug: t.slug }}>
-                  {t.title}
-                </Link>
-              </li>
-            ))
-          }
-        </ul>
+        <div style={{ paddingTop: '18px' }}>
+          { _.map(groups, groupMapper) }
+        </div>
         <style>{`
           ul {
-            margin: 30px 0;
+            margin: 8px 0 0 0;
             list-style: none;
           }
 
@@ -52,7 +66,7 @@ class Texts extends Component {
             text-decoration: none;
             color: #404040;
             display: block;
-            padding: 8px 0;
+            padding: 0 0 8px 0;
           }
         `}</style>
       </Page>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import fetch from 'isomorphic-fetch';
 import moment from 'moment';
-import Page from '../components/Page';
+import { PageWithUpperComponent} from '../components/Page';
 import c from '../constants';
 
 class Text extends Component {
@@ -14,14 +14,15 @@ class Text extends Component {
   render() {
     const post = this.props.post;
     return (
-      <Page
+      <PageWithUpperComponent
         title={post.title}
         htmlTitle={post.title}
+        upperComponent={
+          <p style={{ fontSize: 12, margin: '0 0 6px 0', color: 'grey' }}>{moment(post.created_at).format('LL')}</p>
+        }
       >
         <p>{post.content}</p>
-        <br />
-        <p style={{ fontSize: 14 }}>{moment(post.created_at).format('LL')}</p>
-      </Page>
+      </PageWithUpperComponent>
     );
   }
 }
