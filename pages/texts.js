@@ -9,7 +9,13 @@ import c from '../constants';
 
 class Texts extends Component {
   static async getInitialProps() {
-    const res = await fetch(`${c.API_BASE_URL}/api/Posts`);
+    const res = await fetch(`${c.API_BASE_URL}/api/Posts?filter=${JSON.stringify({
+      fields: {
+        created_at: true,
+        title: true,
+        slug: true,
+      },
+    })}`);
     const json = await res.json();
     return { posts: json };
   }
@@ -24,7 +30,7 @@ class Texts extends Component {
     const posts = this.props.posts;
 
     return (
-      <Page title="Texts">
+      <Page title="Texts" htmlTitle="Texts">
         <ul>
           {
             _.sortBy(posts, 'created_at').reverse().map(t => (
@@ -46,12 +52,20 @@ class Texts extends Component {
             text-decoration: none;
             color: #404040;
             display: block;
-            padding: 4px 0;
+            padding: 8px 0;
           }
         `}</style>
       </Page>
     );
   }
 }
+
+Texts.propTypes = {
+  posts: React.PropTypes.arrayOf(React.PropTypes.shape({
+    created_at: React.PropTypes.objectOf(Date).isRequired,
+    title: React.PropTypes.string.isRequired,
+    slug: React.PropTypes.string.isRequired,
+  })).isRequired,
+};
 
 export default Texts;

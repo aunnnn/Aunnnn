@@ -5,7 +5,7 @@ import Logo from './Logo';
 export default (props) => {
   return (
     <div>
-      <Head />
+      <Head title={props.htmlTitle} />
       <div className="container">
         <Logo />
         {props.children}

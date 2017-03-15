@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import shortid from 'shortid';
 import Page from '../components/Page';
 
 class Images extends Component {
@@ -40,7 +39,7 @@ class Images extends Component {
     const activeImage = this.imgs[activeImageIndex];
 
     return (
-      <Page title="Images">
+      <Page title="Images" htmlTitle="Images">
         <div className="row">
           <div className="five columns gallery">
             {

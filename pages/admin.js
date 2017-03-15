@@ -259,7 +259,7 @@ class admin extends Component {
   render() {
     const { token, findingToken } = this.state;
     return (
-      <Page title="Admin">
+      <Page title="Admin" htmlTitle="Admin">
         {
           (findingToken && <h5>Loading...</h5>)
           || (!findingToken && !token && <h5>Unauthorized.</h5>)

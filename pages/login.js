@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import 'isomorphic-fetch';
+import fetch from 'isomorphic-fetch';
 import Page from '../components/Page';
 import c from '../constants';
 
@@ -31,10 +31,9 @@ class admin extends Component {
   }
 
   handleSubmit(event) {
-
     event.preventDefault();
 
-    if (this.state.loading) { return; };
+    if (this.state.loading) { return; }
 
     this.setState({
       loading: true,
@@ -56,11 +55,11 @@ class admin extends Component {
     })
     .then(res => res.json())
     .then(checkStatus)
-    .then(res => {
+    .then((res) => {
       localStorage.setItem('aunnnn-token', res.id);
       this.props.url.push('/admin');
     })
-    .catch(err => {
+    .catch((err) => {
       alert(err);
       this.setState({
         loading: false,
@@ -70,7 +69,7 @@ class admin extends Component {
 
   render() {
     return (
-      <Page title="Manage">
+      <Page title="Manage" htmlTitle="Login">
         <form onSubmit={this.handleSubmit}>
           <div className="row">
             <label htmlFor="usernameInput">username</label>

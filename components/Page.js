@@ -1,11 +1,14 @@
 import React from 'react';
+import Link from 'next/link';
+import Router from 'next/router';
+
 import Container from './Container';
 
 const Page = (props) => (
-    <Container>
-      {props.title && <h3><strong>{props.title}</strong></h3>}
-      {props.children}
-    </Container>
+  <Container htmlTitle={props.htmlTitle}>
+    {props.title && <h3><strong>{props.title}</strong></h3>}
+    {props.children}
+  </Container>
 );
 
 Page.propTypes = {
@@ -16,4 +19,19 @@ Page.defaultProps = {
   title: null,
 };
 
+const PageWithUpperComponent = (props) => (
+  <Container htmlTitle={props.htmlTitle}>
+    {props.upperComponent}
+    {props.title && <h3><strong>{props.title}</strong></h3>}
+    {props.children}
+    <style>{`
+      a {
+        color: #303030;
+        text-decoration: none;
+      }
+    `}</style>
+  </Container>
+);
+
 export default Page;
+export { PageWithUpperComponent };
