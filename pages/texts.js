@@ -4,12 +4,12 @@ import 'isomorphic-fetch';
 import _ from 'lodash';
 import shortid from 'shortid';
 import Page from '../components/Page';
+import c from '../constants';
 
-const BASE_URL = 'https://backend.aunnnn.com';
 
 class Texts extends Component {
   static async getInitialProps() {
-    const res = await fetch(`${BASE_URL}/api/Posts`);
+    const res = await fetch(`${c.API_BASE_URL}/api/Posts`);
     const json = await res.json();
     return { posts: json };
   }

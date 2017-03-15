@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import 'isomorphic-fetch';
 import moment from 'moment';
 import Page from '../components/Page';
-
-const BASE_URL = 'https://backend.aunnnn.com';
+import c from '../constants';
 
 class Text extends Component {
   static async getInitialProps({ query }) {
     const post_slug = query.slug;
-    const res = await fetch(`${BASE_URL}/api/Posts/findOne?filter=${JSON.stringify({ slug: post_slug })}`);
+    const res = await fetch(`${c.API_BASE_URL}/api/Posts/findOne?filter=${JSON.stringify({ where: { slug: post_slug } })}`);
     const json = await res.json();
     return { post: json };
   }

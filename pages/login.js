@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import 'isomorphic-fetch';
 import Page from '../components/Page';
+import c from '../constants';
 
 function checkStatus(res) {
   if (res.error) {
@@ -41,7 +42,7 @@ class admin extends Component {
 
     const { username, password } = this.state;
 
-    fetch('https://backend.aunnnn.com/api/Users/login', {
+    fetch(`${c.API_BASE_URL}/api/Users/login`, {
       method: 'POST',
       mode: 'cors',
       headers: {

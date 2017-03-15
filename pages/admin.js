@@ -4,8 +4,7 @@ import shortid from 'shortid';
 import moment from 'moment';
 import _ from 'lodash';
 import Page from '../components/Page';
-
-const BASE_URL = 'https://backend.aunnnn.com';
+import c from '../constants';
 
 function checkStatus(res) {
   if (res.error) {
@@ -20,7 +19,7 @@ function checkStatus(res) {
 class admin extends Component {
 
   static async getInitialProps() {
-    const res = await fetch(`${BASE_URL}/api/Posts`);
+    const res = await fetch(`${c.API_BASE_URL}/api/Posts`);
     const json = await res.json();
     return { posts: json };
   }
@@ -66,7 +65,7 @@ class admin extends Component {
   }
 
   refreshPosts() {
-    fetch(`${BASE_URL}/api/Posts`)
+    fetch(`${c.API_BASE_URL}/api/Posts`)
     .then(res => res.json())
     .then(checkStatus)
     .then(posts => this.setState({ posts }))
@@ -107,7 +106,7 @@ class admin extends Component {
     this.setState({ loading: true });
 
     const { newPostTitle, newPostContent, newPostSlug } = this.state;
-    fetch(`${BASE_URL}/api/Posts?access_token=${token}`, {
+    fetch(`${c.API_BASE_URL}/api/Posts?access_token=${token}`, {
       method: 'POST',
       mode: 'cors',
       headers: {
@@ -151,7 +150,7 @@ class admin extends Component {
 
     if (!confirm('Delete this post?')) { return; }
 
-    fetch(`${BASE_URL}/api/Posts/${id}?access_token=${token}`, {
+    fetch(`${c.API_BASE_URL}/api/Posts/${id}?access_token=${token}`, {
       method: 'DELETE',
       mode: 'cors',
       headers: {
