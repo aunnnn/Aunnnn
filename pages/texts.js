@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Link from 'next/link';
+import {Link} from '../routes';
 import 'isomorphic-fetch';
 import _ from 'lodash';
 import shortid from 'shortid';
@@ -29,7 +29,7 @@ class Texts extends Component {
           {
             _.sortBy(posts, 'created_at').reverse().map(t => (
               <li key={shortid.generate()}>
-                <Link prefetch href="/">
+                <Link route="texts" params={{ slug: t.slug }}>
                   {t.title}
                 </Link>
               </li>
