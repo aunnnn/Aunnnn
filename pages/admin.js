@@ -30,9 +30,6 @@ class admin extends Component {
       posts: props.posts,
       loading: false,
       findingToken: true,
-      newPostTitle: '',
-      newPostContent: '',
-      newPostSlug: '',
     };
 
     // data
@@ -43,10 +40,6 @@ class admin extends Component {
     this.NonEmptyTable = this.NonEmptyTable.bind(this);
     this.renderValidatedContent = this.renderValidatedContent.bind(this);
     this.PostTableRow = this.PostTableRow.bind(this);
-
-    // form handling
-    this.handleAddNewPost = this.handleAddNewPost.bind(this);
-    this.handleNewPostFormChange = this.handleNewPostFormChange.bind(this);
   }
 
   componentDidMount() {
@@ -89,55 +82,6 @@ class admin extends Component {
         </tbody>
       </table>
     );
-  }
-
-  handleAddNewPost(event) {
-    event.preventDefault();
-
-    const { loading, token } = this.state;
-    if (loading) { return; }
-    if (!token) {
-      alert('Oops! No token.');
-      return;
-    }
-
-    if (!confirm('Add new post?')) { return; }
-
-    this.setState({ loading: true });
-
-    const { newPostTitle, newPostContent, newPostSlug } = this.state;
-    fetch(`${c.API_BASE_URL}/api/Posts?access_token=${token}`, {
-      method: 'POST',
-      mode: 'cors',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        created_at: Date(),
-        title: newPostTitle,
-        content: newPostContent,
-        slug: newPostSlug,
-      }),
-    })
-    .then(res => res.json())
-    .then(checkStatus)
-    .then(res => {
-      alert('The new post is added!');
-      this.setState({
-        newPostTitle: '',
-        newPostContent: '',
-        newPostSlug: '',
-      });
-      this.refreshPosts();
-    })
-    .catch(alert)
-    .then(() => {
-      this.setState({ loading: false });
-    });
-  }
-
-  handleNewPostFormChange(event) {
-    this.setState({ [event.target.id]: event.target.value });
   }
 
   handleDeletePost = (id) => {
@@ -186,59 +130,7 @@ class admin extends Component {
 
     return (
       <div style={{ padding: '20px' }}>
-        <h4><strong>Posts</strong> (Texts)</h4>
-
-        {/* NEW POST FORM*/}
-        <form
-          onSubmit={this.handleAddNewPost}
-          style={{
-            padding: '20px',
-            borderStyle: 'solid',
-            borderWidth: '1px',
-            borderColor: 'grey',
-          }}
-        >
-          <h4>New Post</h4>
-          <div className="row">
-            <label className="two columns" htmlFor="newPostTitle">Title</label>
-            <input
-              className="ten columns"
-              type="string"
-              id="newPostTitle"
-              value={this.state.newPostTitle}
-              onChange={this.handleNewPostFormChange}
-            />
-          </div>
-
-          <div className="row">
-            <label className="two columns" htmlFor="newPostContent">Content</label>
-            <textarea
-              className="ten columns"
-              id="newPostContent"
-              value={this.state.newPostContent}
-              onChange={this.handleNewPostFormChange}
-            />
-          </div>
-
-          <div className="row">
-            <label className="two columns" htmlFor="newPostSlug">Slug</label>
-            <input
-              className="ten columns"
-              type="string"
-              id="newPostSlug"
-              value={this.state.newPostSlug}
-              onChange={this.handleNewPostFormChange}
-            />
-          </div>
-
-          <input
-            value="Save"
-            type="submit"
-            disabled={newPostTitle === '' || newPostContent === '' || newPostSlug === ''}
-            className="button-primary"
-          />
-        </form>
-
+        <h4><strong>Posts</strong></h4>
         { /* table */ }
         <div>
           <div>
