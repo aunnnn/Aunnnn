@@ -14,6 +14,13 @@ class Images extends Component {
     { name: 'Gloomy forest', path: 'hauntedforest.png' },
     { name: 'Ocean star', path: 'oceanstar.png' },
     { name: 'Color processing', path: 'colorprocessing.png' },
+    { name: 'Black castle', path: 'blackcastle.png' },
+    { name: 'Futuristic roads', path: 'futuristicroads.jpg' },
+    { name: 'Futuristic subway', path: 'futuristicsubway.jpg' },
+    { name: 'Gloomy town', path: 'gloomytown.png' },
+    { name: 'Moonlight', path: 'moonlight.jpg' },
+    { name: 'Oxford', path: 'oxford.jpg' },
+    { name: 'Time to rest', path: 'timetorest.jpg' },
   ];
 
   constructor(props) {
