@@ -27,6 +27,7 @@ class Text extends Component {
       >
         <br />
         <div dangerouslySetInnerHTML={{ __html: post.content }} />
+        <br />
       </PageWithUpperComponent>
     );
   }
