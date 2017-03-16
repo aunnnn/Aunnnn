@@ -106,14 +106,10 @@ export default class newPost extends Component {
                   plugins: 'autolink link image lists code hr preview',
                   toolbar: 'undo redo | bold italic | fontselect fontsizeselect | alignleft aligncenter alignright | bullist numlist blockquote  code hr | preview',
                   font_formats: "Helvetica Neue='Helvetica Neue';Arial=arial,helvetica,sans-serif",
+                  fontsize_formats: '8pt 10pt 12pt 14pt 16pt 18pt 24pt 36pt 1em',
+                  content_style: '.mce-content-body {font-size:16pt;font-family:"Helvetica Neue";}',
                 }}
                 onChange={this.handleEditorChange}
-                onSetupEditor={(editor) => {
-                  editor.on('init', function () {
-                    this.getDoc().body.style.fontSize = '12';
-                    this.getDoc().body.style.fontFamily = 'Helvetica Neue';
-                  });
-                }}
               />
             </div>
             <br />
