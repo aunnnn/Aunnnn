@@ -104,9 +104,16 @@ export default class newPost extends Component {
                 value={newPostContent}
                 tinymceConfig={{
                   plugins: 'autolink link image lists code hr preview',
-                  toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | bullist | numlist | blockquote | code | hr | preview',
+                  toolbar: 'undo redo | bold italic | fontselect fontsizeselect | alignleft aligncenter alignright | bullist numlist blockquote  code hr | preview',
+                  font_formats: "Helvetica Neue='Helvetica Neue';Arial=arial,helvetica,sans-serif",
                 }}
                 onChange={this.handleEditorChange}
+                onSetupEditor={(editor) => {
+                  editor.on('init', function () {
+                    this.getDoc().body.style.fontSize = '12';
+                    this.getDoc().body.style.fontFamily = 'Helvetica Neue';
+                  });
+                }}
               />
             </div>
             <br />
