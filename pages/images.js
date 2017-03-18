@@ -21,6 +21,7 @@ class Images extends Component {
     { name: 'Moonlight', path: 'moonlight.jpg' },
     { name: 'Oxford', path: 'oxford.jpg' },
     { name: 'Time to rest', path: 'timetorest.jpg' },
+    { name: 'Red season', path: 'redseason.png' },
   ];
 
   constructor(props) {
