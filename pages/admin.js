@@ -5,6 +5,7 @@ import moment from 'moment';
 import _ from 'lodash';
 import Page from '../components/Page';
 import c from '../constants';
+import { Link } from '../routes';
 
 function checkStatus(res) {
   if (res.error) {
@@ -113,6 +114,10 @@ class admin extends Component {
     .catch(alert);
   }
 
+  handleEditPost = (slug) => {
+    this.props.url.push(`/editPost/${slug}`);
+  }
+
   PostTableRow(post) {
     return (
       <tr key={shortid.generate()}>
@@ -120,13 +125,18 @@ class admin extends Component {
         <td>{post.content.length}</td>
         <td>{post.slug}</td>
         <td>{moment(post.created_at).fromNow()}</td>
-        <td><button type="button" style={{ color: 'red', borderStyle: 'none' }} onClick={() => this.handleDeletePost(post.id)}>delete</button></td>
+        <td>
+          <Link route="editPost" params={{ slug: post.slug }}>
+            <button type="button" style={{ color: 'blue', cursor: 'pointer', borderStyle: 'none' }}>edit</button>
+          </Link>
+          <button type="button" style={{ color: 'red', borderStyle: 'none' }} onClick={() => this.handleDeletePost(post.id)}>delete</button>
+        </td>
       </tr>
     );
   }
 
   renderValidatedContent() {
-    const { posts, newPostTitle, newPostContent, newPostSlug } = this.state;
+    const { posts } = this.state;
 
     return (
       <div style={{ padding: '20px' }}>

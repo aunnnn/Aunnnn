@@ -3,8 +3,9 @@ import fetch from 'isomorphic-fetch';
 import moment from 'moment';
 
 import Head from '../components/DefaultHead';
-import PostEditor from '../components/PostEditor';
 import Logo from '../components/Logo';
+import PostEditor from '../components/PostEditor';
+
 import c from '../constants';
 
 function checkStatus(res) {
@@ -17,9 +18,14 @@ function checkStatus(res) {
   return res;
 }
 
-export default class newPost extends Component {
+class EditPost extends Component {
+  static async getInitialProps({ query }) {
+    const res = await fetch(`${c.API_BASE_URL}/api/Posts/findOne?filter=${JSON.stringify({ where: { slug: query.slug } })}`);
+    const json = await res.json();
+    return { post: json };
+  }
 
-  handleSubmitNewPost = (postEditorState) => {
+  handleSubmitEditPost = (postEditorState) => {
     const token = localStorage.getItem('aunnnn-token');
     if (!token) {
       alert('Oops! No token.');
@@ -35,10 +41,10 @@ export default class newPost extends Component {
       return;
     }
 
-    if (!confirm('Add new post?')) { return; }
+    if (!confirm('Edit post?')) { return; }
 
-    fetch(`${c.API_BASE_URL}/api/Posts?access_token=${token}`, {
-      method: 'POST',
+    fetch(`${c.API_BASE_URL}/api/Posts/${this.props.post.id}?access_token=${token}`, {
+      method: 'PUT',
       mode: 'cors',
       headers: {
         'Content-Type': 'application/json',
@@ -53,8 +59,8 @@ export default class newPost extends Component {
     .then(res => res.json())
     .then(checkStatus)
     .then((res) => {
-      alert('The new post is added!');
-      this.props.url.push('/texts');
+      alert('The post is edited!');
+      this.props.url.push('/admin');
     })
     .catch(alert);
   }
@@ -67,17 +73,29 @@ export default class newPost extends Component {
         </Head>
         <div className="container">
           <Logo />
-          <h3><strong>New Post</strong></h3>
+          <h3><strong>Edit Post: {this.props.post.title}</strong></h3>
           <PostEditor
-            postTitle=""
-            postContent=""
-            postSlug=""
-            postCreatedAt=""
-            handlePostSubmit={this.handleSubmitNewPost}
-            formButtonTitle="ADD NEW POST"
+            postTitle={this.props.post.title}
+            postContent={this.props.post.content}
+            postSlug={this.props.post.slug}
+            postCreatedAt={this.props.post.created_at}
+            handlePostSubmit={this.handleSubmitEditPost}
+            formButtonTitle="EDIT POST"
           />
         </div>
       </div>
     );
   }
 }
+
+EditPost.propTypes = {
+  post: React.PropTypes.shape({
+    id: React.PropTypes.string.isRequired,
+    slug: React.PropTypes.string.isRequired,
+    title: React.PropTypes.string.isRequired,
+    content: React.PropTypes.string.isRequired,
+    created_at: React.PropTypes.string.isRequired,
+  }).isRequired,
+};
+
+export default EditPost;
