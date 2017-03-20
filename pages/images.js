@@ -22,6 +22,14 @@ class Images extends Component {
     { name: 'Oxford', path: 'oxford.jpg' },
     { name: 'Time to rest', path: 'timetorest.jpg' },
     { name: 'Red season', path: 'redseason.png' },
+    { name: 'In my mirror', path: 'inthemirror.png' },
+    { name: 'Time travel', path: 'timetravel.png' },
+    { name: 'Freedom, where is me?', path: 'freedom.png' },
+    { name: 'By the sea', path: 'bythesea.jpg' },
+    { name: 'Long, long road', path: 'longlongroad.jpg' },
+    { name: 'Training data', path: 'trainingdata.png' },
+    { name: 'Space travel', path: 'spacetravel.png' },
+    { name: 'Moving on', path: 'movingon.png' },
   ];
 
   constructor(props) {
