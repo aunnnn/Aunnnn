@@ -5,6 +5,7 @@ import moment from 'moment';
 import Head from '../components/DefaultHead';
 import Logo from '../components/Logo';
 import PostEditor from '../components/PostEditor';
+import { Router } from '../routes';
 
 import c from '../constants';
 
@@ -60,7 +61,7 @@ class EditPost extends Component {
     .then(checkStatus)
     .then((res) => {
       alert('The post is edited!');
-      this.props.url.push('/admin');
+      Router.pushRoute('texts', { slug: postSlug });
     })
     .catch(alert);
   }
