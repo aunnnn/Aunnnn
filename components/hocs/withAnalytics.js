@@ -13,10 +13,9 @@ export default ComposedComponent => class WithAnalytics extends Component {
 
   constructor(props) {
     super(props);
-    if (process.browser) {
-      if (process.env.NODE_ENV === 'production') {
-        ReactGA.initialize('UA-96078689-1');
-      }
+    // client + production + simple check if it's not admin
+    if (process.browser && process.env.NODE_ENV === 'production' && !localStorage.getItem('aunnnn-token')) {
+      ReactGA.initialize('UA-96078689-1');
     }
   }
 
