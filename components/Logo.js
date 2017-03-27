@@ -129,6 +129,7 @@ export default class Logo extends Component {
             padding-left: 8px;
             color: ${color};
             font-weight: 500;
+            opacity: ${(this.state.count - constants.MIN_COUNT) / constants.MAX_COUNT};
           }
 
           .logo {
