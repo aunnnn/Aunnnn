@@ -89,7 +89,7 @@ export default class Logo extends Component {
     this.setState({ count: count - 1 });
   }
 
-  textForCount = n => `Au${Array(n).join('n')}.`
+  textForCount = n => `Au${Array(n).join('n')}${n === constants.MAX_COUNT ? '.' : ''}`
 
   lerp = (From, To, t) => From + (t * (To - From))
 
@@ -119,19 +119,27 @@ export default class Logo extends Component {
           onMouseEnter={this.onOver}
           onMouseLeave={this.onLeave}
         >
-          <img src="/static/assets/logo.png" alt="" style={{ width: '50px', height: '50px', display: 'inline', verticalAlign: 'middle' }} />
+          <img src="/static/assets/logo.png" alt="" style={{ width: '50px', height: '50px', display: 'inline', verticalAlign: 'bottom' }} />
           <Link prefetch href="/"><a>{text}</a></Link>
         </p>
         <style>{`
           .logo a {
             text-decoration: none;
             display: inline;
+            padding-left: 8px;
             color: ${color};
+            font-weight: 500;
           }
 
           .logo {
             padding-top: 36px;
             padding-bottom: 8px;
+          }
+
+          .logo img {
+            background-color: ${color};
+            border-color: black;
+            border-style: solid;
           }
         `}</style>
       </div>
