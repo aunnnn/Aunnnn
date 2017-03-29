@@ -115,19 +115,17 @@ export default class Logo extends Component {
     const color = this.colorForCount(this.state.count);
     return (
       <div className="logo">
-        <p
-          onMouseEnter={this.onOver}
-          onMouseLeave={this.onLeave}
-        >
-          <Link prefetch href="/">
-            <div>
-              <img src="/static/assets/logo.png" alt="" style={{ width: '50px', height: '50px', display: 'inline', verticalAlign: 'bottom' }} />
-              <a>{text}</a>
-            </div>
-          </Link>
-        </p>
+        <Link prefetch href="/">
+          <div
+            onMouseEnter={this.onOver}
+            onMouseLeave={this.onLeave}
+          >
+            <img src="/static/assets/logo.png" alt="" style={{ width: '50px', height: '50px', display: 'inline', verticalAlign: 'bottom' }} />
+            <a>{text}</a>
+          </div>
+        </Link>
         <style>{`
-          .logo div {
+          .logo {
             cursor: pointer;
           }
 
@@ -142,13 +140,11 @@ export default class Logo extends Component {
 
           .logo {
             padding-top: 36px;
-            padding-bottom: 8px;
+            padding-bottom: 28px;
           }
 
           .logo img {
             background-color: ${color};
-            border-color: black;
-            border-style: solid;
           }
         `}</style>
       </div>
