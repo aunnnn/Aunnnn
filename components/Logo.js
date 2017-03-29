@@ -119,10 +119,18 @@ export default class Logo extends Component {
           onMouseEnter={this.onOver}
           onMouseLeave={this.onLeave}
         >
-          <img src="/static/assets/logo.png" alt="" style={{ width: '50px', height: '50px', display: 'inline', verticalAlign: 'bottom' }} />
-          <Link prefetch href="/"><a>{text}</a></Link>
+          <Link prefetch href="/">
+            <div>
+              <img src="/static/assets/logo.png" alt="" style={{ width: '50px', height: '50px', display: 'inline', verticalAlign: 'bottom' }} />
+              <a>{text}</a>
+            </div>
+          </Link>
         </p>
         <style>{`
+          .logo div {
+            cursor: pointer;
+          }
+
           .logo a {
             text-decoration: none;
             display: inline;
