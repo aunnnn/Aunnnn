@@ -31,6 +31,7 @@ class Images extends Component {
     { name: 'Space travel', path: 'spacetravel.png' },
     { name: 'Moving on', path: 'movingon.png' },
     { name: 'Crimson city', path: 'crimsoncity.png' },
+    { name: 'At the shore of my dream', path: 'attheshoreofmydream.png' },
   ];
 
   constructor(props) {
