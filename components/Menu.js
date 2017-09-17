@@ -15,7 +15,7 @@ const Menu = ({ menu }) => (
         ))
       }
     </ul>
-    <style>{`
+    <style jsx>{`
 
       ul {
         list-style: none;

@@ -32,7 +32,6 @@ export default (props) => (
     <meta name="msapplication-TileImage" content="/static/favicons/ms-icon-144x144.png" />
     <meta name="theme-color" content="#ffffff" />
 
-    <link rel="stylesheet" type="text/css" href="/static/css/normalize.css" />
     <link rel="stylesheet" type="text/css" href="/static/css/skeleton.css" />
     <link rel="stylesheet" type="text/css" href="/static/css/nprogress.css" />
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />

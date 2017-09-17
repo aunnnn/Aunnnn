@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Link from 'next/link';
 import _ from 'lodash';
 
+/*
 function getRandomColor() {
   function c() {
     const hex = Math.floor(Math.random() * 256).toString(16);
@@ -37,7 +38,52 @@ function rgbToHex(r, g, b) {
   }
   return `#${componentToHex(r)}${componentToHex(g)}${componentToHex(b)}`;
 }
+*/
 
+export default () => {
+  return (
+    <div className="logo">
+      <Link prefetch href="/">
+        <div>
+          <img src="/static/assets/logo_closeup.png" alt="" style={{
+            width: '70px',
+            height: '70px',
+            display: 'inline',
+            verticalAlign: 'bottom' }}
+          />
+          <a>aunnnn</a>
+        </div>
+      </Link>
+
+      <style jsx>{`
+        .logo {
+          cursor: pointer;
+        }
+
+        .logo a {
+          text-decoration: none;
+          display: inline;
+          padding-left: 8px;
+          color: black;
+          font-weight: bold;
+          font-size: 26px;
+          font-family: 'Trebuchet MS';
+        }
+
+        .logo {
+          padding-top: 36px;
+          padding-bottom: 64px;
+        }
+
+        .logo img {
+          background-color: white;
+        }
+      `}</style>
+    </div>
+  );
+}
+
+/*
 export default class Logo extends Component {
 
   constructor(props) {
@@ -151,3 +197,4 @@ export default class Logo extends Component {
     );
   }
 }
+*/

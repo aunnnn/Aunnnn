@@ -25,7 +25,7 @@ let PageWithUpperComponent = (props) => (
     {props.upperComponent}
     {props.title && <h3><strong>{props.title}</strong></h3>}
     {props.children}
-    <style>{`
+    <style jsx>{`
       a {
         color: #303030;
         text-decoration: none;

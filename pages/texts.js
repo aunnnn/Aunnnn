@@ -58,7 +58,7 @@ class Texts extends Component {
         </div>
         <style>{`
           ul {
-            margin: 2px 0 0 0px;
+            margin: 2px 0 0 0;
             list-style: none;
           }
 

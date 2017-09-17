@@ -12,11 +12,6 @@ export default () => {
       <div className="menu">
         <Menu menu={menus} />
       </div>
-      <style>{`
-        .menu {
-
-        }
-      `}</style>
     </Page>
   );
 };
