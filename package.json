@@ -6,22 +6,23 @@
     "start": "NODE_ENV=production node server.js"
   },
   "dependencies": {
-    "next": "^2.0.0-beta.36",
-    "next-routes": "^1.0.19",
+    "next": "^3.2.2",
+    "next-routes": "^1.0.40",
     "nprogress": "^0.2.0",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2",
-    "react-ga": "^2.1.2",
-    "react-tinymce-input": "^1.2.1",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-ga": "^2.2.0",
+    "react-p5-wrapper": "0.0.4",
+    "react-tinymce-input": "^2.1.0",
     "shortid": "^2.2.8"
   },
   "devDependencies": {
-    "babel-eslint": "^7.1.1",
-    "eslint": "^3.16.0",
-    "eslint-config-airbnb": "^14.1.0",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^4.0.0",
-    "eslint-plugin-react": "^6.10.0"
+    "babel-eslint": "^8.0.0",
+    "eslint": "^4.7.0",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.3.0"
   },
   "eslintConfig": {
     "parser": "babel-eslint",

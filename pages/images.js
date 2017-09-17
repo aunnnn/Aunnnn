@@ -61,7 +61,7 @@ class Images extends Component {
         <div className="row">
           <div className="five columns gallery">
             {
-              this.imgs.map((obj, ind) => <div onMouseEnter={() => this.onOver(ind)}>{imgBuilder('center-cropped')(obj)}</div>)
+              this.imgs.map((obj, ind) => <div key={obj.path} onMouseEnter={() => this.onOver(ind)}>{imgBuilder('center-cropped')(obj)}</div>)
             }
           </div>
           <div className="seven columns display-panel">
