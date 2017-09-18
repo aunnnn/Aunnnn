@@ -45,7 +45,7 @@ export default () => {
     <div className="logo">
       <Link prefetch href="/">
         <div>
-          <img src="/static/assets/logo_closeup.png" alt="" style={{
+          <img src="/static/assets/logo_closeup.jpg" alt="" style={{
             width: '70px',
             height: '70px',
             display: 'inline',
