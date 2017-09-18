@@ -1,13 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
-import shortid from 'shortid';
 
 const Menu = ({ menu }) => (
   <div>
     <ul>
       {
         menu.map(({ path, title }) => (
-          <li key={shortid.generate()}>
+          <li key={title}>
             <Link prefetch href={path}>
               <a>{`${title}`}</a>
             </Link>

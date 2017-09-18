@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import fetch from 'isomorphic-fetch';
-import shortid from 'shortid';
 import moment from 'moment';
 import _ from 'lodash';
 
@@ -30,7 +29,7 @@ class Texts extends Component {
     //   'Axioms of life',
     // ];
     const postMapper = t => (
-      <li key={shortid.generate()}>
+      <li key={t.slug}>
         <Link route="texts" params={{ slug: t.slug }}>
           <a>
             {t.title}

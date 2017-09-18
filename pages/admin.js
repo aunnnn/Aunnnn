@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import 'isomorphic-fetch';
-import shortid from 'shortid';
 import moment from 'moment';
 import _ from 'lodash';
 import Page from '../components/Page';
@@ -120,7 +119,7 @@ class admin extends Component {
 
   PostTableRow(post) {
     return (
-      <tr key={shortid.generate()}>
+      <tr key={post.slug}>
         <td>{post.title}</td>
         <td>{post.content.length}</td>
         <td>{post.slug}</td>
