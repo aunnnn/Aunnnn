@@ -2,199 +2,43 @@ import React, { Component } from 'react';
 import Link from 'next/link';
 import _ from 'lodash';
 
-/*
-function getRandomColor() {
-  function c() {
-    const hex = Math.floor(Math.random() * 256).toString(16);
-    return (`0${String(hex)}`).substr(-2); // pad with zero
-  }
-  return `#${c()}${c()}${c()}`;
-}
-
-const constants = {
-  MIN_COUNT: 5,
-  MAX_COUNT: 12,
-  FROM_COLOR: {
-    r: 0,
-    g: 0,
-    b: 255,
-  },
-};
-
-function hexToRgb(hex) {
-  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-  return result ? {
-    r: parseInt(result[1], 16),
-    g: parseInt(result[2], 16),
-    b: parseInt(result[3], 16),
-  } : null;
-}
-
-
-function rgbToHex(r, g, b) {
-  function componentToHex(c) {
-    const hex = c.toString(16);
-    return hex.length === 1 ? `0${hex}` : hex;
-  }
-  return `#${componentToHex(r)}${componentToHex(g)}${componentToHex(b)}`;
-}
-*/
-
-export default () => {
-  return (
-    <div className="logo">
-      <Link prefetch href="/">
-        <div>
-          <img src="/static/assets/logo_closeup.jpg" alt="" style={{
-            width: '70px',
-            height: '70px',
-            display: 'inline',
-            verticalAlign: 'bottom' }}
-          />
-          <a>aunnnn</a>
-        </div>
-      </Link>
-
-      <style jsx>{`
-        .logo {
-          cursor: pointer;
-        }
-
-        .logo a {
-          text-decoration: none;
-          display: inline;
-          padding-left: 8px;
-          color: black;
-          font-weight: bold;
-          font-size: 26px;
-          font-family: 'Trebuchet MS';
-        }
-
-        .logo {
-          padding-top: 36px;
-          padding-bottom: 64px;
-        }
-
-        .logo img {
-          background-color: white;
-        }
-      `}</style>
-    </div>
-  );
-}
-
-/*
-export default class Logo extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      count: constants.MIN_COUNT,
-      toColor: '#D9CC22',
-    };
-    this.onOver = _.throttle(this.onOver.bind(this), 80);
-    this.onLeave = this.onLeave.bind(this);
-    this.tickLeave = this.tickLeave.bind(this);
-    this.tickOver = this.tickOver.bind(this);
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.timer);
-  }
-
-  onOver() {
-    this.setState({
-      toColor: getRandomColor(),
-    });
-    clearInterval(this.timer);
-    this.timer = setInterval(this.tickOver, 20);
-  }
-
-  onLeave() {
-    clearInterval(this.timer);
-    this.timer = setInterval(this.tickLeave, 20);
-  }
-
-  throttledSetRandomToColor = _.throttle(() => this.setState({ toColor: getRandomColor() }), 250)
-
-  tickOver() {
-    const count = this.state.count;
-    if (count === constants.MAX_COUNT) {
-      // this.throttledSetRandomToColor();
-      return;
-    }
-    this.setState({ count: count + 1 });
-  }
-
-  tickLeave() {
-    const count = this.state.count;
-    if (count === constants.MIN_COUNT) {
-      clearInterval(this.timer);
-      return;
-    }
-    this.setState({ count: count - 1 });
-  }
-
-  textForCount = n => `Au${Array(n).join('n')}${n === constants.MAX_COUNT ? '.' : ''}`
-
-  lerp = (From, To, t) => From + (t * (To - From))
-
-  colorForCount = (n) => {
-    if (n === constants.MIN_COUNT) {
-      return 'blue';
-    }
-    const MIN = constants.MIN_COUNT;
-    const MAX = constants.MAX_COUNT;
-    const t = (n - MIN) / (MAX - MIN);
-
-    const fromColor = constants.FROM_COLOR;
-    const toColor = hexToRgb(this.state.toColor);
-
-    const r3 = Math.floor(this.lerp(fromColor.r, toColor.r, t));
-    const g3 = Math.floor(this.lerp(fromColor.g, toColor.g, t));
-    const b3 = Math.floor(this.lerp(fromColor.b, toColor.b, t));
-    return rgbToHex(r3, g3, b3);
-  }
-
-  render() {
-    const text = this.textForCount(this.state.count);
-    const color = this.colorForCount(this.state.count);
-    return (
-      <div className="logo">
-        <Link prefetch href="/">
-          <div
-            onMouseEnter={this.onOver}
-            onMouseLeave={this.onLeave}
-          >
-            <img src="/static/assets/logo.png" alt="" style={{ width: '50px', height: '50px', display: 'inline', verticalAlign: 'bottom' }} />
-            <a>{text}</a>
-          </div>
-        </Link>
-        <style>{`
-          .logo {
-            cursor: pointer;
-          }
-
-          .logo a {
-            text-decoration: none;
-            display: inline;
-            padding-left: 8px;
-            color: ${color};
-            font-weight: 500;
-            opacity: ${(this.state.count - constants.MIN_COUNT) / constants.MAX_COUNT};
-          }
-
-          .logo {
-            padding-top: 36px;
-            padding-bottom: 28px;
-          }
-
-          .logo img {
-            background-color: ${color};
-          }
-        `}</style>
+export default () => (
+  <div className="logo">
+    <Link prefetch href="/">
+      <div>
+        <img src="/static/assets/logo_closeup.jpg" style={{
+          width: '70px',
+          height: '70px',
+          display: 'inline',
+          verticalAlign: 'bottom' }}
+        />
+        <a>aunnnn</a>
       </div>
-    );
-  }
-}
-*/
+    </Link>
+
+    <style jsx>{`
+      .logo {
+        cursor: pointer;
+      }
+
+      .logo a {
+        text-decoration: none;
+        display: inline;
+        padding-left: 8px;
+        color: black;
+        font-weight: bold;
+        font-size: 26px;
+        font-family: 'Trebuchet MS';
+      }
+
+      .logo {
+        padding-top: 36px;
+        padding-bottom: 64px;
+      }
+
+      .logo img {
+        background-color: white;
+      }
+    `}</style>
+  </div>
+)
