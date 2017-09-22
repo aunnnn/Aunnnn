@@ -2,3 +2,7 @@ node_modules
 npm-debug.log
 .next
 TestSketch.js
+static/contents/images_original
+static/contents/images_copy
+static/contents/images2_original
+static/contents/images1_original

@@ -1,76 +1,125 @@
 import React, { Component } from 'react';
+import _ from 'lodash';
+import dynamic from 'next/dynamic';
 import Page from '../components/Page';
 
-class Images extends Component {
-  onOver = (ind) => {
-    this.setState({
-      activeImageIndex: ind,
-    });
-  }
+// import Lightbox from 'react-images';
+let Lightbox = null;
 
-  imgs = [
-    { name: 'Black crowd', path: 'blackcrowd.png' },
-    { name: 'Edge of dreams', path: 'edgeofdream.jpg' },
-    { name: 'Gloomy forest', path: 'hauntedforest.png' },
-    { name: 'Ocean star', path: 'oceanstar.png' },
-    { name: 'Color processing', path: 'colorprocessing.png' },
-    { name: 'Black castle', path: 'blackcastle.png' },
-    { name: 'Futuristic roads', path: 'futuristicroads.jpg' },
-    { name: 'Futuristic subway', path: 'futuristicsubway.jpg' },
-    { name: 'Gloomy town', path: 'gloomytown.png' },
-    { name: 'Moonlight', path: 'moonlight.jpg' },
-    { name: 'Oxford', path: 'oxford.jpg' },
-    { name: 'Time to rest', path: 'timetorest.jpg' },
-    { name: 'Red season', path: 'redseason.png' },
-    { name: 'In my mirror', path: 'inthemirror.png' },
-    { name: 'Time travel', path: 'timetravel.png' },
-    { name: 'Freedom, where is me?', path: 'freedom.png' },
-    { name: 'By the sea', path: 'bythesea.jpg' },
-    { name: 'Long, long road', path: 'longlongroad.jpg' },
-    { name: 'Training data', path: 'trainingdata.png' },
-    { name: 'Space travel', path: 'spacetravel.png' },
-    { name: 'Moving on', path: 'movingon.png' },
-    { name: 'Crimson city', path: 'crimsoncity.png' },
-    { name: 'At the shore of my dream', path: 'attheshoreofmydream.png' },
-  ];
+class Images extends Component {
+  imgs = _.range(1, 64)
+  // imgs = [
+  //   { name: 'Black crowd', path: 'blackcrowd' },
+  //   { name: 'Edge of the world', path: 'edgeofdream' },
+  //   { name: 'Gloomy forest', path: 'hauntedforest' },
+  //   { name: 'Ocean of stars', path: 'oceanstar' },
+  //   { name: 'Processing', path: 'colorprocessing' },
+  //   { name: 'Black castle', path: 'blackcastle' },
+  //   { name: 'Futuristic roads', path: 'futuristicroads' },
+  //   { name: 'Futuristic subway', path: 'futuristicsubway' },
+  //   { name: 'Gloomy town', path: 'gloomytown' },
+  //   { name: 'Moonlight', path: 'moonlight' },
+  //   { name: 'Oxford', path: 'oxford' },
+  //   { name: 'Time to rest', path: 'timetorest' },
+  //   { name: 'Red season', path: 'redseason' },
+  //   { name: 'In my mirror', path: 'inthemirror' },
+  //   { name: 'Time travel', path: 'timetravel' },
+  //   { name: 'Freedom', path: 'freedom' },
+  //   { name: 'By the sea', path: 'bythesea' },
+  //   { name: 'Long road', path: 'longlongroad' },
+  //   { name: 'Training data', path: 'trainingdata' },
+  //   { name: 'Space travel', path: 'spacetravel' },
+  //   { name: 'Moving on', path: 'movingon' },
+  //   { name: 'Crimson city', path: 'crimsoncity' },
+  //   { name: 'At the shore', path: 'attheshoreofmydream' },
+  // ]
 
   constructor(props) {
     super(props);
     this.state = {
-      activeImageIndex: 0,
+      currentImage: 0,
+      lightboxIsOpen: false,
     };
   }
 
-  render() {
-    const { activeImageIndex } = this.state;
+  openLightbox = (ind) => {
+    // Load image viewer on first tap
+    if (!Lightbox) {
+      Lightbox = dynamic(import('react-images'), {
+        ssr: false,
+      });
+    }
+    this.setState({
+      currentImage: ind,
+      lightboxIsOpen: true,
+    });
+  }
 
+  closeLightbox = () => {
+    this.setState({
+      currentImage: 0,
+      lightboxIsOpen: false,
+    });
+  }
+
+  gotoPrevious = () => {
+    this.setState({
+      currentImage: this.state.currentImage - 1,
+    });
+  }
+
+  gotoNext = () => {
+    this.setState({
+      currentImage: this.state.currentImage + 1,
+    });
+  }
+
+  goToImage = (ind) => {
+    this.setState({
+      currentImage: ind,
+    });
+  }
+
+  handleClickImage = () => {
+    if (this.state.currentImage === this.imgs.length - 1) {
+      return;
+    }
+    this.gotoNext();
+  }
+
+  render() {
     const imgBuilder = ImgClassName => obj => (
       <img
-        key={`${ImgClassName}-${obj.path}`}
+        key={`${ImgClassName}-${obj}`}
         className={ImgClassName}
-        alt={obj.path}
-        title={obj.name}
-        src={`static/contents/images/${obj.path}`}
+        alt={obj}
+        title={obj}
+        src={`static/contents/images/${obj}.jpg`}
       />
     );
-
-    const activeImage = this.imgs[activeImageIndex];
 
     return (
       <Page title="Images" htmlTitle="Images">
         <div className="row">
-          <div className="five columns gallery">
+          <div className="gallery">
             {
-              this.imgs.map((obj, ind) => <div key={obj.path} onMouseEnter={() => this.onOver(ind)}>{imgBuilder('center-cropped')(obj)}</div>)
+              this.imgs.map((obj, ind) => <div key={`img_${ind}`} onClick={() => this.openLightbox(ind)}>{imgBuilder('center-cropped')(obj)}</div>)
             }
           </div>
-          <div className="seven columns display-panel">
-            <div>
-              { imgBuilder('display-panel-img')(activeImage) }
-              <h6>{activeImage.name}</h6>
-            </div>
-          </div>
         </div>
+        {Lightbox && <Lightbox
+          currentImage={this.state.currentImage}
+          images={this.imgs.map((obj) => {
+            return { src: `static/contents/images/${obj}.jpg` };
+          })}
+          isOpen={this.state.lightboxIsOpen}
+          onClickImage={this.handleClickImage}
+          onClickNext={this.gotoNext}
+          onClickPrev={this.gotoPrevious}
+          onClickThumbnail={this.goToImage}
+          onClose={this.closeLightbox}
+          showThumbnails
+        />}
         <style>{`
           .center-cropped {
             object-fit: cover;
@@ -80,34 +129,21 @@ class Images extends Component {
             margin-right: .3em;
             border: 1px solid #000;
             background: white;
+            cursor: pointer;
+            opacity: 1.0;
+            filter: alpha(opacity=100);
+          }
+          .center-cropped:hover {
+            opacity: 0.8;
+            filter: alpha(opacity=80);
+          }
+
+          .gallery {
+            text-align: center;
           }
 
           .gallery div {
             display: inline-block;
-          }
-
-          .display-panel {
-            visibility: hidden;
-          }
-
-          .display-panel img {
-            max-height: 60%;
-            max-width: 400px;
-            position: fixed;
-            border: 1px solid #000;
-          }
-
-          .display-panel h6 {
-            position: fixed;
-            transform: translate(0, -22px);
-          }
-
-
-          /* tablet & upper */
-          @media (min-width: 600px) {
-            .display-panel {
-              visibility: visible;
-            }
           }
         `}</style>
       </Page>
