@@ -23,11 +23,7 @@ class Texts extends Component {
   }
 
   render() {
-    // const texts = [
-    //   'What is creativity?',
-    //   'Should we think before paint?',
-    //   'Axioms of life',
-    // ];
+
     const postMapper = t => (
       <li key={t.slug}>
         <Link route="texts" params={{ slug: t.slug }}>
