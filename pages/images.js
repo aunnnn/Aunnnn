@@ -7,7 +7,7 @@ import Page from '../components/Page';
 let Lightbox = null;
 
 class Images extends Component {
-  imgs = _.range(1, 90)
+  imgs = _.range(1, 91)
   // imgs = [
   //   { name: 'Black crowd', path: 'blackcrowd' },
   //   { name: 'Edge of the world', path: 'edgeofdream' },
