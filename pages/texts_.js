@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import fetch from 'isomorphic-fetch';
 import moment from 'moment';
 import { Link } from '../routes';
@@ -58,12 +59,12 @@ class Text extends Component {
 }
 
 Text.propTypes = {
-  post: React.PropTypes.shape({
-    id: React.PropTypes.string.isRequired,
-    slug: React.PropTypes.string.isRequired,
-    title: React.PropTypes.string.isRequired,
-    content: React.PropTypes.string.isRequired,
-    created_at: React.PropTypes.string.isRequired,
+  post: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    slug: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired,
+    created_at: PropTypes.string.isRequired,
   }).isRequired,
 };
 

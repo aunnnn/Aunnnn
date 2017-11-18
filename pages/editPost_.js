@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 import fetch from 'isomorphic-fetch';
 import moment from 'moment';
 
 import Head from '../components/DefaultHead';
 import Logo from '../components/Logo';
-import PostEditor from '../components/PostEditor';
+// import PostEditor from '../components/PostEditor';
 import { Router } from '../routes';
+
+import dynamic from 'next/dynamic'
+
+const PostEditor = dynamic(import('../components/PostEditor'), {
+  ssr: false
+});
 
 import c from '../constants';
 
@@ -33,7 +40,9 @@ class EditPost extends Component {
       return;
     }
 
-    const { postTitle, postContent, postSlug, postCreatedAt } = postEditorState;
+    const {
+      postTitle, postContent, postSlug, postCreatedAt,
+    } = postEditorState;
 
     // strict date parsing
     const finalCreatedAt = moment(postCreatedAt, 'DD-MM-YYYY HH:mm', true);
@@ -57,13 +66,13 @@ class EditPost extends Component {
         slug: postSlug,
       }),
     })
-    .then(res => res.json())
-    .then(checkStatus)
-    .then((res) => {
-      alert('The post is edited!');
-      Router.pushRoute('texts', { slug: postSlug });
-    })
-    .catch(alert);
+      .then(res => res.json())
+      .then(checkStatus)
+      .then((res) => {
+        alert('The post is edited!');
+        Router.pushRoute('texts', { slug: postSlug });
+      })
+      .catch(alert);
   }
 
   render() {
@@ -90,12 +99,12 @@ class EditPost extends Component {
 }
 
 EditPost.propTypes = {
-  post: React.PropTypes.shape({
-    id: React.PropTypes.string.isRequired,
-    slug: React.PropTypes.string.isRequired,
-    title: React.PropTypes.string.isRequired,
-    content: React.PropTypes.string.isRequired,
-    created_at: React.PropTypes.string.isRequired,
+  post: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    slug: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired,
+    created_at: PropTypes.string.isRequired,
   }).isRequired,
 };
 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 import moment from 'moment';
 import TinyMCE from 'react-tinymce-input';
 
@@ -95,12 +96,12 @@ class PostEditor extends Component {
 }
 
 PostEditor.propsType = {
-  postContent: React.PropTypes.string,
-  postTitle: React.PropTypes.string,
-  postSlug: React.PropTypes.string,
-  postCreatedAt: React.PropTypes.instanceOf(Date),
-  handlePostSubmit: React.PropTypes.func.isRequired,
-  formButtonTitle: React.PropTypes.string.isRequired,
+  postContent: PropTypes.string,
+  postTitle: PropTypes.string,
+  postSlug: PropTypes.string,
+  postCreatedAt: PropTypes.instanceOf(Date),
+  handlePostSubmit: PropTypes.func.isRequired,
+  formButtonTitle: PropTypes.string.isRequired,
 };
 
 export default PostEditor;

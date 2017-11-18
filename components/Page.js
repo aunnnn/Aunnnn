@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
+import PropTypes from 'prop-types';
 
 import Container from './Container';
 import withAnalytics from './hocs/withAnalytics';
@@ -13,7 +14,7 @@ let Page = (props) => (
 );
 
 Page.propTypes = {
-  title: React.PropTypes.string,
+  title: PropTypes.string,
 };
 
 Page.defaultProps = {

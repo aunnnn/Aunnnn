@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import fetch from 'isomorphic-fetch';
 import moment from 'moment';
 import _ from 'lodash';
@@ -23,7 +24,6 @@ class Texts extends Component {
   }
 
   render() {
-
     const postMapper = t => (
       <li key={t.slug}>
         <Link route="texts" params={{ slug: t.slug }}>
@@ -70,10 +70,10 @@ class Texts extends Component {
 }
 
 Texts.propTypes = {
-  posts: React.PropTypes.arrayOf(React.PropTypes.shape({
-    created_at: React.PropTypes.objectOf(Date).isRequired,
-    title: React.PropTypes.string.isRequired,
-    slug: React.PropTypes.string.isRequired,
+  posts: PropTypes.arrayOf(PropTypes.shape({
+    created_at: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    slug: PropTypes.string.isRequired,
   })).isRequired,
 };
 

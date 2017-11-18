@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Link from 'next/link';
 
 const Menu = ({ menu }) => (
@@ -41,9 +42,9 @@ const Menu = ({ menu }) => (
 );
 
 Menu.propTypes = {
-  menu: React.PropTypes.arrayOf(React.PropTypes.shape({
-    path: React.PropTypes.string.isRequired,
-    title: React.PropTypes.string.isRequired,
+  menu: PropTypes.arrayOf(PropTypes.shape({
+    path: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
   })).isRequired,
 };
 
