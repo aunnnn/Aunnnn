@@ -100,6 +100,9 @@ class Images extends Component {
 
     return (
       <Page title="Images" htmlTitle="Images">
+        <div className="description row">
+          <p>I love exploring different worlds in my mind via digital painting. Most are done using Paper53 or Procreate.</p>
+        </div>
         <div className="row">
           <div className="gallery">
             {
@@ -121,6 +124,12 @@ class Images extends Component {
           showThumbnails
         />}
         <style>{`
+          .description {
+            margin: 20px 0px;
+          }
+          .description p {
+            font-size: 16px;
+          }
           .center-cropped {
             object-fit: cover;
             object-position: center; /* Center the image within the element */
