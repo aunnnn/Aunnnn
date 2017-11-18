@@ -5,10 +5,11 @@ import Menu from '../components/Menu';
 export default () => {
   const menus = [
     { path: '/images', title: 'images,' },
-    { path: '/texts', title: 'texts' },
+    { path: '/texts', title: 'texts,' },
+    { path: '/more', title: 'more' },
   ];
   return (
-    <Page>
+    <Page showHomeButton={false}>
       <div className="menu">
         <Menu menu={menus} />
       </div>
