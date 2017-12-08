@@ -3,9 +3,15 @@ import fetch from 'isomorphic-fetch';
 import moment from 'moment';
 
 import Head from '../components/DefaultHead';
-import PostEditor from '../components/PostEditor';
+// import PostEditor from '../components/PostEditor';
 import Logo from '../components/Logo';
 import c from '../constants';
+
+import dynamic from 'next/dynamic'
+
+const PostEditor = dynamic(import('../components/PostEditor'), {
+  ssr: false
+});
 
 function checkStatus(res) {
   if (res.error) {
@@ -50,13 +56,13 @@ export default class newPost extends Component {
         slug: postSlug,
       }),
     })
-    .then(res => res.json())
-    .then(checkStatus)
-    .then((res) => {
-      alert('The new post is added!');
-      this.props.url.push('/texts');
-    })
-    .catch(alert);
+      .then(res => res.json())
+      .then(checkStatus)
+      .then((res) => {
+        alert('The new post is added!');
+        this.props.url.push('/texts');
+      })
+      .catch(alert);
   }
 
   render() {
