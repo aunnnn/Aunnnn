@@ -94,7 +94,8 @@ class Images extends Component {
         className={ImgClassName}
         alt={obj}
         title={obj}
-        src={`static/contents/images/${obj}.jpg`}
+        // src={`static/contents/images/${obj}.jpg`}
+        src={`https://s3-ap-southeast-1.amazonaws.com/aunnnn.com/gallery/${obj}.jpg`}
       />
     );
 
