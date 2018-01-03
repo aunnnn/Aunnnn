@@ -102,7 +102,7 @@ class Images extends Component {
     return (
       <Page title="Images" htmlTitle="Images">
         <div className="description row">
-          <p>I love exploring different worlds in my mind via digital painting. Most are done using Paper53 or Procreate.</p>
+          <p>Most are done using Paper53 or Procreate.</p>
         </div>
         <div className="row">
           <div className="gallery">

@@ -5,14 +5,14 @@ import Link from 'next/link';
 import Container from './Container';
 import withAnalytics from './hocs/withAnalytics';
 
-let Page = ({ title, htmlTitle, showHomeButton = true, children }) => (
+const Page = ({ title, htmlTitle, showHomeButton = true, children }) => (
   <Container htmlTitle={htmlTitle}>
     <div>
       {showHomeButton && (
         <Link prefetch href="/">
           <a className="back-button">
             <img src="/static/assets/chevron-left.svg" alt="Home" />
-            <p>Home</p>
+            <p>Back to Home</p>
           </a>
         </Link>
       )}
@@ -20,8 +20,10 @@ let Page = ({ title, htmlTitle, showHomeButton = true, children }) => (
       <style jsx>{`
         .back-button {
           text-decoration: none;
-          font-size: 15px;
-          color: black;
+          font-size: 14px;
+          color: silver;
+          margin-bottom: 22px;
+          display: block;
         }
         .back-button p {
           display: inline;
@@ -58,8 +60,7 @@ let PageWithUpperComponent = (props) => (
   </Container>
 );
 
-Page = withAnalytics(Page);
 PageWithUpperComponent = withAnalytics(PageWithUpperComponent);
 
-export default Page;
+export default withAnalytics(Page);
 export { PageWithUpperComponent };

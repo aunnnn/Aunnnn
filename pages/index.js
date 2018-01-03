@@ -6,6 +6,7 @@ export default () => {
   const menus = [
     { path: '/images', title: 'images,' },
     { path: '/texts', title: 'texts,' },
+    { path: '/projects', title: 'projects,' },
     { path: '/more', title: 'more' },
   ];
   return (
