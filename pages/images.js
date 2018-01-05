@@ -43,6 +43,15 @@ class Images extends Component {
     };
   }
 
+  trackImageEventAtIndex = (ind) => {
+    if (process.browser && process.env.NODE_ENV === 'production' && !localStorage.getItem('aunnnn-token')) {
+      ReactGA.event({
+        category: 'Click to view image at index',
+        action: ind,
+      });
+    }
+  }
+
   openLightbox = (ind) => {
     // Load image viewer on first tap
     if (!Lightbox) {
@@ -51,13 +60,7 @@ class Images extends Component {
       });
     }
 
-    if (process.browser && process.env.NODE_ENV === 'production' && !localStorage.getItem('aunnnn-token')) {
-      ReactGA.event({
-        category: 'PageView',
-        action: 'Click to view image at index',
-        value: ind,
-      });
-    }
+    this.trackImageEventAtIndex(ind);
 
     this.setState({
       currentImage: ind,
@@ -73,18 +76,21 @@ class Images extends Component {
   }
 
   gotoPrevious = () => {
+    this.trackImageEventAtIndex(this.state.currentImage - 1);
     this.setState({
       currentImage: this.state.currentImage - 1,
     });
   }
 
   gotoNext = () => {
+    this.trackImageEventAtIndex(this.state.currentImage + 1);
     this.setState({
       currentImage: this.state.currentImage + 1,
     });
   }
 
   goToImage = (ind) => {
+    this.trackImageEventAtIndex(ind);
     this.setState({
       currentImage: ind,
     });
