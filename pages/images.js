@@ -44,10 +44,14 @@ class Images extends Component {
   }
 
   trackImageEventAtIndex = (ind) => {
-    if (process.browser && process.env.NODE_ENV === 'production' && !localStorage.getItem('aunnnn-token')) {
+    if (process.browser 
+        && process.env.NODE_ENV === 'production' 
+        && !localStorage.getItem('aunnnn-token')
+      ) {
+
       ReactGA.event({
         category: 'Click to view image at index',
-        action: ind,
+        action: `${ind}`,
       });
     }
   }
