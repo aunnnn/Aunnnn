@@ -11,8 +11,7 @@ const Page = ({ title, htmlTitle, showHomeButton = true, children }) => (
       {showHomeButton && (
         <Link prefetch href="/">
           <a className="back-button">
-            <img src="/static/assets/chevron-left.svg" alt="Home" />
-            <p>Back to Home</p>
+            Back to Home
           </a>
         </Link>
       )}
