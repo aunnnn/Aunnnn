@@ -114,7 +114,7 @@ class Images extends Component {
         {Lightbox && <Lightbox
           currentImage={this.state.currentImage}
           images={this.imgs.map((obj) => {
-            return { src: `static/contents/images/${obj}.jpg` };
+            return { src: `https://s3-ap-southeast-1.amazonaws.com/aunnnn.com/gallery/${obj}.jpg` };
           })}
           isOpen={this.state.lightboxIsOpen}
           onClickImage={this.handleClickImage}
