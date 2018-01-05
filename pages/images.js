@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 import dynamic from 'next/dynamic';
+import ReactGA from 'react-ga';
 import Page from '../components/Page';
 
 // import Lightbox from 'react-images';
@@ -49,6 +50,15 @@ class Images extends Component {
         ssr: false,
       });
     }
+
+    if (process.browser && process.env.NODE_ENV === 'production' && !localStorage.getItem('aunnnn-token')) {
+      ReactGA.event({
+        category: 'PageView',
+        action: 'Click to view image at index',
+        value: ind,
+      });
+    }
+
     this.setState({
       currentImage: ind,
       lightboxIsOpen: true,
