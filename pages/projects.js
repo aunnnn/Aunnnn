@@ -37,6 +37,30 @@ const ProjectsPage = () => {
       subtitle: 'Turn faces into Emojis',
     },
     {
+      title: 'ViewElements',
+      categories: [1, 4, 5],
+      keyword: 'ViewElements',
+      subtitle: 'Simplified views management',
+    },
+    {
+      title: 'CreativeSwift',
+      categories: [4, 5],
+      keyword: 'CreativeSwift',
+      subtitle: 'Creative coding framework in Swift',
+    },
+    {
+      title: 'Quick Thai News',
+      categories: [0, 1, 8],
+      keyword: 'QuickThaiNews',
+      subtitle: 'Minimal news reader iOS app',
+    },
+    {
+      title: 'Studio Live',
+      categories: [0, 1, 8],
+      keyword: 'StudioLive',
+      subtitle: 'Animation creator iOS app',
+    },
+    {
       title: 'Hover Explorer',
       categories: [0, 2, 10],
       keyword: 'HoverExplorer',
@@ -53,30 +77,6 @@ const ProjectsPage = () => {
       categories: [2, 10],
       keyword: 'DiamondDashBot',
       subtitle: 'Bot that plays Diamond Dash',
-    },
-    {
-      title: 'Quick Thai News',
-      categories: [0, 1, 8],
-      keyword: 'QuickThaiNews',
-      subtitle: 'Minimal news reader iOS app',
-    },
-    {
-      title: 'Studio Live',
-      categories: [0, 1, 8],
-      keyword: 'StudioLive',
-      subtitle: 'Animation creator iOS app',
-    },
-    {
-      title: 'CreativeSwift',
-      categories: [4, 5],
-      keyword: 'CreativeSwift',
-      subtitle: 'Creative coding framework in Swift',
-    },
-    {
-      title: 'ViewElements',
-      categories: [1, 4, 5],
-      keyword: 'ViewElements',
-      subtitle: 'Simplified views management',
     },
   ];
   return (
