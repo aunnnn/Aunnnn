@@ -12,36 +12,57 @@ const ProjectsPage = () => {
     'Framework', // 5
     'Research', // 6
     'Python', // 7
+    'Mobile app', // 8
+    'Web', // 9
+    'Desktop', // 10
   ];
 
   const projectsInfo = [
     {
+      title: '*A Corner-based Saliency Model',
+      categories: [6, 7],
+      keyword: 'CORS',
+      subtitle: 'Visual saliency prediction (undergrad thesis)',
+    },
+    {
+      title: 'Platonos',
+      categories: [0, 9],
+      keyword: 'Platonos',
+      subtitle: 'Social network platform that encourages discussions',
+    },
+    {
+      title: 'EmojiFaces',
+      categories: [9],
+      keyword: 'EmojiFaces',
+      subtitle: 'Turn faces into Emojis',
+    },
+    {
       title: 'Hover Explorer',
-      categories: [0, 2],
+      categories: [0, 2, 10],
       keyword: 'HoverExplorer',
       subtitle: 'An alternative file explorer',
     },
     {
       title: 'The Space Boxer',
-      categories: [2, 3],
+      categories: [2, 3, 10],
       keyword: 'SpaceBoxer',
       subtitle: 'A small 2D desktop game',
     },
     {
       title: 'Diamond Dash Bot',
-      categories: [2],
+      categories: [2, 10],
       keyword: 'DiamondDashBot',
       subtitle: 'A bot that plays Diamond Dash',
     },
     {
       title: 'Quick Thai News',
-      categories: [0, 1],
+      categories: [0, 1, 8],
       keyword: 'QuickThaiNews',
       subtitle: 'Minimal iOS news reader app',
     },
     {
       title: 'Studio Live',
-      categories: [0, 1],
+      categories: [0, 1, 8],
       keyword: 'StudioLive',
       subtitle: 'Animation creator iOS app',
     },
@@ -56,12 +77,6 @@ const ProjectsPage = () => {
       categories: [1, 4, 5],
       keyword: 'ViewElements',
       subtitle: 'Simplified views management',
-    },
-    {
-      title: 'A Corner-based Saliency Model',
-      categories: [6, 7],
-      keyword: 'CORS',
-      subtitle: 'Visual saliency prediction (undergrad thesis)',
     },
   ];
   return (

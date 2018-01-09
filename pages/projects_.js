@@ -11,6 +11,8 @@ const ProjectComponents = {
   SpaceBoxer: dynamic(import('../projects/SpaceBoxer.js')),
   ViewElements: dynamic(import('../projects/ViewElements.js')),
   HoverExplorer: dynamic(import('../projects/HoverExplorer.js')),
+  Platonos: dynamic(import('../projects/Platonos.js')),
+  EmojiFaces: dynamic(import('../projects/EmojiFaces.js')),
 };
 
 class ProjectPage extends Component {
