@@ -6,8 +6,26 @@ import Page from '../components/Page';
 const ProjectBasePage = ({ htmlTitle='Aunnnn', children }) => {
   return (
     <Page htmlTitle={htmlTitle} showHomeButton={false}>
+        <Link prefetch href="/projects">
+          <a className="back-button">
+            Back to all projects
+          </a>
+        </Link>
       {children}
-      <style global>{`
+      <style jsx global>{`
+
+        .back-button {
+          text-decoration: none;
+          font-size: 14px;
+          color: silver;
+          margin-bottom: 22px;
+          display: block;
+        }
+        .back-button p {
+          display: inline;
+          margin-left: 4px;
+          height: 100%;
+        }
 
         h1, h2, h3, h4, h5, h6 {font-weight:normal;color:#111;}
         
