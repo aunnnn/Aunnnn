@@ -1,3 +1,3 @@
-Aunnnn's blog
+Aunnnn.com
 
 https://aunnnn.com
