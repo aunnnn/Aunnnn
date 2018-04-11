@@ -37,6 +37,13 @@ const ProjectsPage = () => {
       subtitle: 'Turn faces into Emojis',
     },
     {
+      title: 'Shills.lol',
+      categories: [9],
+      keyword: null,
+      subtitle: 'The place to shill cryptocurrencies',
+      url: 'https://shills.lol',
+    },
+    {
       title: 'ViewElements',
       categories: [1, 4, 5],
       keyword: 'ViewElements',
@@ -84,19 +91,36 @@ const ProjectsPage = () => {
       <div className="main">
         <ul>
           {
-            projectsInfo.map(o => (
-              <li key={o.title}>
-                <div className="project-info">
-                  <Link route="projects" params={{ projectKeyword: o.keyword }}>
-                    <a>{o.title}</a>
-                  </Link>
-                  <p className="subtitle">{o.subtitle}</p>
-                  <p className="category-list">
-                    {o.categories.map(c => categories[c]).join(', ')}
-                  </p>
-                </div>
-              </li>
-            ))
+            projectsInfo.map(o => {
+              if (typeof o.url !== "undefined") {
+                return (
+                  <li key={o.title}>
+                    <div className="project-info">
+                      <Link href={o.url}>
+                        <a>{o.title}</a>
+                      </Link>
+                      <p className="subtitle">{o.subtitle}</p>
+                      <p className="category-list">
+                        {o.categories.map(c => categories[c]).join(', ')}
+                      </p>
+                    </div>
+                  </li>  
+                )
+              }
+              return (
+                <li key={o.title}>
+                  <div className="project-info">
+                    <Link route="projects" params={{ projectKeyword: o.keyword }}>
+                      <a>{o.title}</a>
+                    </Link>
+                    <p className="subtitle">{o.subtitle}</p>
+                    <p className="category-list">
+                      {o.categories.map(c => categories[c]).join(', ')}
+                    </p>
+                  </div>
+                </li>
+              )
+            })
           }
         </ul>
       </div>
