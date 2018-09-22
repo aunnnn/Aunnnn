@@ -37,13 +37,6 @@ const ProjectsPage = () => {
       subtitle: 'Turn faces into Emojis',
     },
     {
-      title: 'Shills.lol',
-      categories: [9],
-      keyword: null,
-      subtitle: 'The place to shill cryptocurrencies',
-      url: 'https://shills.lol',
-    },
-    {
       title: 'ViewElements',
       categories: [1, 4, 5],
       keyword: 'ViewElements',
@@ -92,6 +85,7 @@ const ProjectsPage = () => {
         <ul>
           {
             projectsInfo.map(o => {
+              // Use url if possible
               if (typeof o.url !== "undefined") {
                 return (
                   <li key={o.title}>
@@ -104,7 +98,7 @@ const ProjectsPage = () => {
                         {o.categories.map(c => categories[c]).join(', ')}
                       </p>
                     </div>
-                  </li>  
+                  </li>
                 )
               }
               return (
