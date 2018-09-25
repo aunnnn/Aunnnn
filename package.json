@@ -6,6 +6,7 @@
     "start": "NODE_ENV=production node server.js"
   },
   "dependencies": {
+    "create-react-class": "^15.6.3",
     "next": "^7.0.0",
     "next-routes": "^1.4.2",
     "nprogress": "^0.2.0",
