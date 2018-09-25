@@ -45,7 +45,7 @@ class Texts extends Component {
       </div>
     );
 
-    const groups = _.groupBy(this.props.posts, obj => moment(obj.created_at).startOf('day').format());
+    const groups = _.groupBy(this.props.posts, obj => moment(obj.created_at).startOf('day').format())
     return (
       <Page title="Texts" htmlTitle="Texts">
         <div style={{ paddingTop: '18px' }}>
