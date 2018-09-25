@@ -35,7 +35,7 @@ class Texts extends Component {
     );
 
     const groupMapper = (group, day) => (
-      <div style={{ marginBottom: '10px' }}>
+      <div key={`${day}`} style={{ marginBottom: '10px' }}>
         <p style={{ fontSize: 10, color: '#BCC1C2', margin: 0 }}>
           {`${moment(day).format('ll')}`}
         </p>
