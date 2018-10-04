@@ -37,6 +37,13 @@ const ProjectsPage = () => {
       subtitle: 'Turn faces into Emojis',
     },
     {
+      title: 'Shills.lol',
+      categories: [9],
+      keyword: null,
+      subtitle: 'The place to shill cryptocurrencies',
+      url: 'https://shills.lol',
+    },
+    {
       title: 'ViewElements',
       categories: [1, 4, 5],
       keyword: 'ViewElements',
