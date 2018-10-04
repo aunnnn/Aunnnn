@@ -12,9 +12,9 @@ export default () => (
       </div>
       <h3>Problem</h3>
 
-      <p>Most news reader sites (and apps) are cluttered, and I wanted to make one as simple as possible. In the detail page, the app <strong>strips all the decorations and only shows news content</strong>. The url to original version is included. Also, users can easily increase font size.</p>
+      <p>Most news reader apps are cluttered, so I set out to build one, as simple as possible. In the detail page, the app <strong>strips all the decorations and only shows news content</strong>. This is done by extracting the relevant html tag to show the content, with original url included. Users can also easily increase font size directly in the app.</p>
 
-      <p>This app has only one (the first) version, as I don’t have sufficient permissions to use content from news agencies (and didn’t pass the Apple’s reviews.).</p>
+      <p>This app has only one version, as I don’t have enough permissions to use content from news agencies (thus didn’t pass the Apple’s reviews).</p>
 
       <p>However, it has attracted a lot of people since then!</p>
 
