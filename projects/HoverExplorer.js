@@ -10,18 +10,18 @@ export default () => (
 
     <p>“What if we could browse all files and folders without a click?”</p>
 
-    <p>Built-in file explorers, like Finder on Mac, require us to click or tap a key to browse files and folders. Hover Explorer aims to replace clicks and taps with hovering. So, users can move his mouse through nodes of files and folders, and they will expand until you reach the target file and click it to open. A single click is needed.</p>
+    <p>A typical file explorer GUI, like Finder on Mac, requires us to click or tap to browse files and folders. Hover Explorer replace them with hovering. This way, users can move the mouse through icons of files and folders, and proceed until they reach the destination file/folder and click it to open. The final, single click is needed.</p>
 
     <h3>Lessons</h3>
 
     <ul>
-      <li>I discontinued this project because Mac has Spotlight, the feature that let you search anything using natural language. I believe this is the best way to do file search so far on a laptop. You type a part of the file or folder directly from your memory and the system handles the rest.</li>
+      <li>I discontinued this project because Mac has Spotlight, which let you search anything using natural language. I believe this is the most efficient way to do search files on a laptop, as far as I know. You just type a part of the file directly and the system handles the rest.</li>
       <li>Switching between keyboard and mouse is too slow.</li>
     </ul>
 
     <h3>Future</h3>
 
-    <p>It is fun to question those that are included by default in the laptop we use everyday, like a file explorer. However, the future of file search and other desktop controls will be geared toward natural language processing with texts or speech.</p>
+    <p>It's interesting to question things that are included by default, things we use every day like a file explorer. However, the future of search and other desktop controls will certainly gear towards natural language, either with texts or speech.</p>
 
     <h3>Technical details</h3>
 
