@@ -13,6 +13,7 @@ const ProjectComponents = {
   HoverExplorer: dynamic(import('../projects/HoverExplorer.js')),
   Platonos: dynamic(import('../projects/Platonos.js')),
   EmojiFaces: dynamic(import('../projects/EmojiFaces.js')),
+  AppStore: dynamic(import('../projects/AppStore')),
 };
 
 class ProjectPage extends Component {

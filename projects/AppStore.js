@@ -2,7 +2,7 @@ export default () => (
   <div>
     <h2>App Store Interactive Transition Revealed</h2>
 
-    <p><a href="https://www.youtube.com/watch?v=-F5fGrJ-PKs&amp;t=770s">Talk @ MobileConf18 (Thai)</a></p>
+    <p><a href="https://www.youtube.com/watch?v=-F5fGrJ-PKs">Talk @ MobileConf18 (Thai)</a></p>
 
     <p><a href="https://github.com/aunnnn/AppStoreiOS11InteractiveTransition">Github repo (slides included)</a></p>
 
