@@ -15,6 +15,7 @@ const ProjectsPage = () => {
     'Mobile app', // 8
     'Web', // 9
     'Desktop', // 10
+    'Talk', // 11
   ];
 
   const projectsInfo = [
@@ -23,6 +24,12 @@ const ProjectsPage = () => {
       categories: [6, 7],
       keyword: 'CORS',
       subtitle: 'Visual saliency prediction (undergrad thesis)',
+    },
+    {
+      title: 'App Store Interactive Transition Revealed',
+      categories: [6, 11],
+      keyword: 'AppStore',
+      subtitle: 'How to implement that seamless animation like Apple',
     },
     {
       title: 'Platonos',
@@ -34,7 +41,7 @@ const ProjectsPage = () => {
       title: 'AutoSketch',
       categories: [1, 6],
       keyword: 'AutoSketch',
-      subtitle: 'Visual documentation on iOS with Salsa and UI testing',
+      subtitle: 'Visual documentation for iOS',
       url: 'https://blog.oozou.com/documenting-ios-apps-visually-e8736b431cf7',
     },
     {
