@@ -8,6 +8,7 @@ import Page from '../components/Page';
 let Lightbox = null;
 
 class Images extends Component {
+  // Img name start at 1.png, but the analytics will start at 0 (index).
   imgs = _.range(1, 91)
   // imgs = [
   //   { name: 'Black crowd', path: 'blackcrowd' },

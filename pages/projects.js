@@ -31,17 +31,11 @@ const ProjectsPage = () => {
       subtitle: 'Social network platform that encourages discussions',
     },
     {
-      title: 'EmojiFaces',
-      categories: [9],
-      keyword: 'EmojiFaces',
-      subtitle: 'Turn faces into Emojis',
-    },
-    {
-      title: 'Shills.lol',
-      categories: [9],
-      keyword: null,
-      subtitle: 'The place to shill cryptocurrencies',
-      url: 'https://shills.lol',
+      title: 'AutoSketch',
+      categories: [1, 6],
+      keyword: 'AutoSketch',
+      subtitle: 'Visual documentation on iOS with Salsa and UI testing',
+      url: 'https://blog.oozou.com/documenting-ios-apps-visually-e8736b431cf7',
     },
     {
       title: 'ViewElements',
@@ -60,6 +54,19 @@ const ProjectsPage = () => {
       categories: [0, 1, 8],
       keyword: 'QuickThaiNews',
       subtitle: 'Minimal news reader iOS app',
+    },
+    {
+      title: 'EmojiFaces',
+      categories: [9],
+      keyword: 'EmojiFaces',
+      subtitle: 'Turn faces into Emojis',
+    },
+    {
+      title: 'Shills.lol',
+      categories: [9],
+      keyword: null,
+      subtitle: 'The place to shill cryptocurrencies',
+      url: 'https://shills.lol',
     },
     {
       title: 'Studio Live',
