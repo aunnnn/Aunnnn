@@ -171,6 +171,7 @@ class ProjectsPage extends React.Component {
           </ul>
         </div>
         <style jsx>{`
+
           ul {
             margin: 2px 0 0 0;
             list-style: none;
@@ -201,7 +202,7 @@ class ProjectsPage extends React.Component {
           }
   
           .main {
-            margin-left: 20px;
+            margin-bottom: 40px;
           }
           
           .tag {

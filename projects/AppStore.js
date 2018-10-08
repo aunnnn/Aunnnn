@@ -6,13 +6,20 @@ export default () => (
 
     <p><a href="https://github.com/aunnnn/AppStoreiOS11InteractiveTransition">Github repo (slides included)</a></p>
 
-    <figure><img alt="demo gif" src="https://raw.githubusercontent.com/aunnnn/AppStoreiOS11InteractiveTransition/master/appstoreios11demo.gif"/></figure>
+    <figure><img src="https://raw.githubusercontent.com/aunnnn/AppStoreiOS11InteractiveTransition/master/appstoreios11demo.gif"/></figure>
 
-    <p>
-      Have you seen that bouncing animation on the newest AppStore? That’s so seamless and cool. 
-      It’s what I’m trying to replicate here.
-      I refined my experiments and implementations for months,
-      figuring out all the details, and finally revealed them in my first tech talk!
-    </p>
+    <p>Have you seen that bouncing animation on the newest AppStore? That’s so seamless and cool. It’s what I’m trying to recreate. I refined my experiments and implementations for months, figuring out all the details, and finally revealed them in my first tech talk!</p>
+
+    <div width="100%">
+      <iframe 
+        title="video"
+        style={
+          {
+            display: 'block',
+            margin: '0 auto 40px auto',
+          }
+        }      
+        align="middle" width="560" height="315" src="https://www.youtube.com/embed/-F5fGrJ-PKs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
   </div>
 );

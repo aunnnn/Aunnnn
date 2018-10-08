@@ -3,9 +3,10 @@ import Page from '../components/Page';
 
 export default () => {
   const links = [
-    { logo: 'github.svg', alt: 'github', url: 'https://github.com/aunnnn' },
     { logo: 'linkedin.svg', alt: 'linkedin', url: 'https://www.linkedin.com/in/wirawit-rueopas-437518120/' },
     { logo: 'medium.svg', alt: 'medium', url: 'https://medium.com/@aunnnn' },
+    { logo: 'github.svg', alt: 'github', url: 'https://github.com/aunnnn' },
+    { logo: 'stackoverflow.svg', alt: 'stackoverflow', url: 'https://stackoverflow.com/users/6666165/aunnnn' },
   ];
   return (
     <Page htmlTitle="More">
