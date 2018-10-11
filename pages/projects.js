@@ -31,7 +31,7 @@ const projectsInfo = [
   },
   {
     title: 'App Store Interactive Transition Revealed',
-    categories: [6, 11],
+    categories: [1, 6, 11],
     keyword: 'AppStore',
     subtitle: 'Seamless interaction like Apple',
   },
