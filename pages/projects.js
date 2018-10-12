@@ -61,6 +61,12 @@ const projectsInfo = [
     subtitle: 'Creative coding framework in Swift',
   },
   {
+    title: 'Swifty Localization',
+    categories: [1, 4],
+    keyword: 'SwiftyLocalization',
+    subtitle: 'Better localization workflow for mobile development'
+  },
+  {
     title: 'Quick Thai News',
     categories: [0, 1, 8],
     keyword: 'QuickThaiNews',

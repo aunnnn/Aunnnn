@@ -6,7 +6,7 @@ export default () => (
 
     <figure><img src="https://78.media.tumblr.com/0ca0d621eec65fc00760f0216688d41d/tumblr_oi5wwrCJxz1vl9qmgo1_r2_400.gif"/></figure>
 
-    <p>This is my earliest and proudest side project. I was hooked how we have the ability to build something that performs at level ourselves can’t ever reach.</p>
+    <p>This is my earliest (also proudest!) side project. I was hooked how we can build something that performs things at level we can’t ever reach.</p>
 
     <h3>Technical details</h3>
 

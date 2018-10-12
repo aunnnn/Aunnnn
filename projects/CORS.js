@@ -2,7 +2,9 @@ export default () => (
   <div>
     <h2>A Corner-based Saliency Model</h2>
 
-    <p>A bottom-up computational visual attention model with this simple hypothesis: “If our eye movements usually rest on the corners, the transition in colors, why not regard them as areas with higher visual saliency.”</p>
+    <p>A bottom-up computational visual attention model with a simple, but intriguing hypothesis, that our eyes usually <strong>rest on areas with abrupt changes in color</strong>, which I call corners.</p>
+
+    <p>So, I converted this idea into a visual saliency prediction model.</p>
 
     <p>This is the sample result:</p>
 
