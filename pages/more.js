@@ -1,5 +1,6 @@
 import React from 'react';
 import Page from '../components/Page';
+import Internship from '../components/SeekingInternshipSection';
 
 export default () => {
   const links = [
@@ -11,6 +12,9 @@ export default () => {
   return (
     <Page htmlTitle="More">
       <div className="main">
+        <div className="intern-section">
+          <Internship />
+        </div>
         <ul>
           {
             links.map(({ logo, alt, url }) => {
@@ -31,6 +35,7 @@ export default () => {
         }
         ul {
           list-style: none;
+          margin-bottom: 0;
         }
         li {
           display: inline;
@@ -44,6 +49,11 @@ export default () => {
         .link-logo img {
           width: 28px;
           height: 28px;
+        }
+        .intern-section {
+          margin: 0;
+          padding-top: 0;
+          padding-bottom: 22px;
         }
       `}</style>
     </Page>

@@ -33,7 +33,7 @@ export default () => (
 
       .logo {
         padding-top: 36px;
-        padding-bottom: 64px;
+        padding-bottom: 42px;
       }
 
       .logo img {
