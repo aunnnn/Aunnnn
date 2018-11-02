@@ -16,7 +16,7 @@ export default () => (
             margin: '0 auto 40px auto',
           }
         }      
-        align="middle" width="560" height="315" src="https://www.youtube.com/embed/-F5fGrJ-PKs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        align="middle" width="560" height="315" src="https://www.youtube.com/embed/-F5fGrJ-PKs" frameborder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
     </div>
   </div>
 );
