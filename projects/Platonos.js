@@ -12,7 +12,7 @@ export default () => (
 
     <figure><img src="https://s3-ap-southeast-1.amazonaws.com/aunnnn.com/work/assets/platonos-preview-2.png"/></figure>
 
-    <p><a href="platonos.com">platonos.com</a></p>
+    <p><a href="https://platonos.com">platonos.com</a></p>
 
     <h3>Why?</h3>
 
