@@ -6,7 +6,7 @@ export default () => (
 
     <figure><img src="https://s3-ap-southeast-1.amazonaws.com/aunnnn.com/work/assets/emojifaces-demo.gif"/></figure>
 
-    <p><a href="http://emojifaces.fun/">emojifaces.fun</a></p>
+    <p><a href="https://aunnnn.github.io/EmojiFaces/">Try</a></p>
 
     <p><a href="https://github.com/aunnnn/EmojiFaces">Github repo</a></p>
 
