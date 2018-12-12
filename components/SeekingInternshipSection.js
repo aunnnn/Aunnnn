@@ -7,10 +7,10 @@ const sendOutboundEvent = (e) => {
   }, () => { console.log('working') });
 };
 
-export default () => (
+export default ({resumeText}) => (
   <div className="intern-section">
     <p>
-      <em>Currently looking for software engineer internship!</em>
+      {resumeText ? <em>{resumeText}</em> : null}
       <a 
         className="link-resume" 
         href="https://s3-ap-southeast-1.amazonaws.com/aunnnn.com/work/intern-resume-sweng.pdf" 

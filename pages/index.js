@@ -12,9 +12,9 @@ export default () => {
   ];
   return (
     <Page showHomeButton={false}>
-      <div className="intern-section">
+      {/* <div className="intern-section">
         <Internship />
-      </div>
+      </div> */}
       <div className="menu">
         <Menu menu={menus} />        
       </div>

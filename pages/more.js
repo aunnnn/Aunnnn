@@ -2,6 +2,8 @@ import React from 'react';
 import Page from '../components/Page';
 import Internship from '../components/SeekingInternshipSection';
 
+// "Currently looking for software engineer internship!"
+
 export default () => {
   const links = [
     { logo: 'linkedin.svg', alt: 'linkedin', url: 'https://www.linkedin.com/in/wirawit-rueopas-437518120/' },
