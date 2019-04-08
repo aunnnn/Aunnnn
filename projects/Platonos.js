@@ -35,7 +35,7 @@ export default () => (
       <li>The talk ends if any participant ends it.</li>
     </ol>
 
-    <p>Read more at <a href="https://platonos.com/about">platonos.com/about</a>.</p>
+    <p>Read more at <a href="https://platonos.aunnnn.com/about">About page</a>.</p>
 
     <p>The fun bit is that any users can click on any chatroom to watch the talk in action since all are public. It’s like you can watch other persons’ real-time messaging!</p>
 
