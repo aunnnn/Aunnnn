@@ -12,7 +12,8 @@ export default () => (
 
     <figure><img src="https://s3-ap-southeast-1.amazonaws.com/aunnnn.com/work/assets/platonos-preview-2.png"/></figure>
 
-    <p><a href="https://platonos.com">platonos.com</a></p>
+    <p><a href="https://platonos.aunnnn.com">platonos.aunnnn.com</a></p>
+    <p><em>Note: Too lazy to pay for the previous domain (platonos.com)</em></p>
 
     <h3>Why?</h3>
 
