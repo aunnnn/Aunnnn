@@ -15,6 +15,7 @@ const ProjectComponents = {
   platonos: dynamic(import('../projects/Platonos.js')),
   emojifaces: dynamic(import('../projects/EmojiFaces.js')),
   appstore: dynamic(import('../projects/AppStore')),
+  cse256: dynamic(import('../projects/CSE256.js')),
   swiftylocalization: dynamic(import('../projects/SwiftyLocalization')),
 };
 

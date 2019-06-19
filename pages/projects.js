@@ -15,6 +15,7 @@ const categories = [
   'Web', // 9
   'Desktop', // 10
   'Talk', // 11
+  'ML', //12
 ];
 
 const categoriesToIndicesDict = {};
@@ -34,6 +35,12 @@ const projectsInfo = [
     categories: [1, 6, 11],
     keyword: 'AppStore',
     subtitle: 'Seamless interaction like Apple',
+  },
+  {
+    title: 'Visualize NLP classifier',
+    categories: [12, 7],
+    keyword: 'CSE256',
+    subtitle: 'Final group project for CSE256',
   },
   {
     title: 'Platonos',
