@@ -1,6 +1,6 @@
 import React from 'react';
 import Page from '../components/Page';
-import Internship from '../components/SeekingInternshipSection';
+import SeekingJob from '../components/SeekingJobSection';
 
 // "Currently looking for software engineer internship!"
 
@@ -14,8 +14,8 @@ export default () => {
   return (
     <Page htmlTitle="More">
       <div className="main">
-        <div className="intern-section">
-          <Internship />
+        <div className="job-section">
+          <SeekingJob />
         </div>
         <ul>
           {
@@ -52,7 +52,7 @@ export default () => {
           width: 28px;
           height: 28px;
         }
-        .intern-section {
+        .job-section {
           margin: 0;
           padding-top: 0;
           padding-bottom: 22px;

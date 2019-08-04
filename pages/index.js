@@ -1,7 +1,7 @@
 import React from 'react';
 import Page from '../components/Page';
 import Menu from '../components/Menu';
-import Internship from '../components/SeekingInternshipSection';
+import SeekingJob from '../components/SeekingJobSection';
 
 export default () => {
   const menus = [
@@ -12,14 +12,14 @@ export default () => {
   ];
   return (
     <Page showHomeButton={false}>
-      {/* <div className="intern-section">
-        <Internship />
-      </div> */}
+      <div className="job-section">
+        <SeekingJob resumeText="Seeking full-time software engineer position" />
+      </div>
       <div className="menu">
         <Menu menu={menus} />        
       </div>
       <style jsx>{`
-        .intern-section {
+        .job-section {
           margin: 0;
           padding-top: 0;
           padding-bottom: 18px;

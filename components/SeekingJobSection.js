@@ -13,7 +13,7 @@ export default ({resumeText}) => (
       {resumeText ? <em>{resumeText}</em> : null}
       <a 
         className="link-resume" 
-        href="https://s3-ap-southeast-1.amazonaws.com/aunnnn.com/work/intern-resume-sweng.pdf" 
+        href="https://s3-ap-southeast-1.amazonaws.com/aunnnn.com/work/fulltime-sweng-resume.pdf"
         target="_blank"
         onClick={sendOutboundEvent}
         >
