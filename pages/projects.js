@@ -63,7 +63,7 @@ const projectsInfo = [
   },
   {
     title: 'CreativeSwift',
-    categories: [4, 5],
+    categories: [1, 4, 5],
     keyword: 'CreativeSwift',
     subtitle: 'Creative coding framework in Swift',
   },
