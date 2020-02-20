@@ -7,11 +7,13 @@
   },
   "dependencies": {
     "create-react-class": "^15.6.3",
-    "next": "^7.0.0",
+    "moment": "^2.24.0",
+    "next": "^9.2.2",
     "next-routes": "^1.4.2",
+    "next-server": "^9.0.5",
     "nprogress": "^0.2.0",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
     "react-ga": "^2.5.3",
     "react-images": "^0.5.19",
     "react-tinymce-input": "^2.1.0"

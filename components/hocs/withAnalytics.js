@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { loadGetInitialProps } from 'next/dist/lib/utils';
+import { loadGetInitialProps } from 'next-server/dist/lib/utils';
 
 let ReactGA;
 if (process.browser) {
