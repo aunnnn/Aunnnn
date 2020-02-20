@@ -6,6 +6,6 @@ export default () => (
     <p>I was responsible for the webapp and porting NLP models from Jupyter Notebook to be used in the web app. We used <a href="http://dash.plot.ly/">Dash</a></p>
     <br/>
     <p><a href="https://github.com/aunnnn/cse256-model-explaination">GitHub</a></p>
-    <p><a href="https://cse256.aunnnn.com">Demo</a></p>
+    <p><a href="https://cse256.herokuapp.com/">Demo</a> on Heroku (free). Could take few seconds to load.</p>
   </div>
 );
