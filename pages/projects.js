@@ -25,18 +25,18 @@ categories.forEach((el, ind) => {
 
 const projectsInfo = [
   {
+    title: 'RHLinePlot',
+    categories: [1, 4],
+    keyword: 'RHLinePlot',
+    subtitle: 'A line plot library like in the Robinhood iOS app in SwiftUI',
+    url: 'https://github.com/aunnnn/RHLinePlot',
+  },
+  {
     title: 'MovingNumbersView',
     categories: [1, 4],
     keyword: 'MovingNumbersView',
     subtitle: 'A label with moving numbers effect like the Robinhood iOS app in SwiftUI',
     url: 'https://github.com/aunnnn/MovingNumbersView',
-  },
-  {
-    title: 'RHLinePlot',
-    categories: [1, 4],
-    keyword: 'RHLinePlot',
-    subtitle: 'A line plot like in the Robinhood iOS app in SwiftUI',
-    url: 'https://github.com/aunnnn/RHLinePlot',
   },
   {
     title: '*A Corner-based Saliency Model',
