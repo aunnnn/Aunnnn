@@ -25,6 +25,20 @@ categories.forEach((el, ind) => {
 
 const projectsInfo = [
   {
+    title: 'MovingNumbersView',
+    categories: [1, 4],
+    keyword: 'MovingNumbersView',
+    subtitle: 'A label with moving numbers effect like the Robinhood iOS app in SwiftUI',
+    url: 'https://github.com/aunnnn/MovingNumbersView',
+  },
+  {
+    title: 'RHLinePlot',
+    categories: [1, 4],
+    keyword: 'RHLinePlot',
+    subtitle: 'A line plot like in the Robinhood iOS app in SwiftUI',
+    url: 'https://github.com/aunnnn/RHLinePlot',
+  },
+  {
     title: '*A Corner-based Saliency Model',
     categories: [6, 7],
     keyword: 'CORS',
@@ -125,7 +139,7 @@ class ProjectsPage extends React.Component {
       tag: query.tag,
     }
   }
-  render() {    
+  render() {
     const tag = this.props.tag;
     const hasTag = typeof tag !== 'undefined'
     const filteredProjects = hasTag ? projectsInfo.filter(({ categories: cats }) => cats.indexOf(categoriesToIndicesDict[tag]) !== -1) : projectsInfo;
@@ -138,7 +152,7 @@ class ProjectsPage extends React.Component {
                 <a className="back-button">
                   Back to all projects
                 </a>
-              </Link>            
+              </Link>
               :
               null
           }
@@ -172,7 +186,7 @@ class ProjectsPage extends React.Component {
                                 {categories[c]}
                               </span>
                             </Link>
-                            )
+                          )
                           )
                         }
                       </p>
