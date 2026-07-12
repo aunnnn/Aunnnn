@@ -1,0 +1,109 @@
+/* Logo */
+.logo {
+  cursor: pointer;
+  padding-top: 36px;
+  padding-bottom: 42px;
+}
+.logo a {
+  text-decoration: none;
+  display: inline;
+  padding-left: 8px;
+  color: black;
+  font-weight: bold;
+  font-size: 26px;
+  font-family: 'Trebuchet MS';
+}
+.logo img {
+  background-color: white;
+}
+
+/* Back button (used on Page, ProjectBasePage) */
+.back-button {
+  text-decoration: none;
+  font-size: 14px;
+  color: silver;
+  margin-bottom: 22px;
+  display: block;
+}
+.back-button p {
+  display: inline;
+  margin-left: 4px;
+  height: 100%;
+}
+
+/* Project detail page typography (from ProjectBasePage) */
+.project-detail h1, .project-detail h2, .project-detail h3,
+.project-detail h4, .project-detail h5, .project-detail h6 {
+  font-weight: normal;
+  color: #111;
+}
+.project-detail h1 { font-size: 3em; line-height: 1; margin-bottom: 0.5em; margin-top: 2em; }
+.project-detail h2 { font-size: 2em; margin-bottom: 0.75em; margin-top: 1.5em; }
+.project-detail h3 { font-size: 1.5em; line-height: 1; margin-top: 1.5em; }
+.project-detail h4 { font-size: 1.2em; line-height: 1.25; margin-bottom: 1.25em; }
+.project-detail h5 { font-size: 1em; font-weight: bold; margin-bottom: 1.5em; }
+.project-detail h6 { font-size: 1em; font-weight: bold; }
+.project-detail h1 img, .project-detail h2 img, .project-detail h3 img,
+.project-detail h4 img, .project-detail h5 img, .project-detail h6 img { margin: 0; }
+.project-detail img { max-width: 100%; }
+.project-detail p { margin: 0 0 1.5em; }
+.project-detail a:focus, .project-detail a:hover { color: #09f; }
+.project-detail a { color: #06c; text-decoration: underline; }
+.project-detail blockquote { margin: 1.5em; color: #666; }
+.project-detail strong, .project-detail dfn { font-weight: bold; }
+.project-detail em, .project-detail dfn { font-style: italic; }
+.project-detail del { color: #666; }
+.project-detail pre { margin: 1.5em 0; white-space: pre; }
+.project-detail pre, .project-detail code, .project-detail tt {
+  font: 1em 'andale mono', 'lucida console', monospace;
+  line-height: 1.5;
+}
+.project-detail li ul, .project-detail li ol { margin: 0; }
+.project-detail ul, .project-detail ol { margin: 0 3em 1.5em 1.5em; padding-left: 1.5em; }
+.project-detail ul { list-style-type: disc; }
+.project-detail ol { list-style-type: decimal; }
+.project-detail figure { margin: 1.5em 0; width: 100%; text-align: center; }
+.project-detail figcaption { font-size: 0.75em; padding: 0.5em 2em; margin-bottom: 2em; }
+.project-detail figure img { margin-bottom: 0px; }
+.project-detail code { font-family: Menlo, monospace; font-size: 90%; }
+.project-detail p > code { padding: 0.2em 0.4em; background: #e1e9ed; }
+.project-detail pre {
+  text-align: left; overflow-x: scroll; color: #d3bd7e;
+  background: #202020; padding: 10pt 15pt; border-radius: 3px;
+}
+.project-detail hr {
+  border: 0px; border-top: 1px solid #ddd; border-bottom: 1px solid #fff;
+  margin-top: 4em; margin-bottom: 2em;
+}
+.project-detail h1 + hr { margin-top: 2em; }
+.project-detail ol#footnotes { font-size: 0.75em; padding-top: 1.5em; margin-top: 3em; margin-left: 0; }
+.project-detail ol#footnotes:before { content: "———"; letter-spacing: -4px; margin-left: -1.5em; }
+.project-detail ol p, .project-detail ul p { margin-bottom: 0px; }
+.project-detail li { margin-bottom: 0.75em; margin-top: 0.75em; }
+
+.project-detail .images-column {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.project-detail .images-column div {
+  flex-grow: 0;
+  margin: 0 4px;
+  max-height: 100%;
+  display: inline-block;
+}
+.project-detail .images-column img { max-height: 400px; }
+.project-detail .center-caption {
+  text-align: center;
+  margin: 12px auto 22px auto;
+}
+.project-detail .center-caption em {
+  display: inline-block;
+  color: gray;
+  font-size: 0.8em;
+}
+.project-detail .mobile-img {
+  max-width: 320px !important;
+  margin: 8px auto;
+}

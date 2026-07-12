@@ -1,0 +1,128 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const imgCount = 90;
+const imgs = Array.from({ length: imgCount }, (_, i) => i + 1);
+const imgSrc = (n) => `https://s3-ap-southeast-1.amazonaws.com/aunnnn.com/gallery/${n}.jpg`;
+---
+
+<BaseLayout title="Images" pageTitle="Images">
+  <div class="row">
+    <div class="gallery">
+      {imgs.map((n) => (
+        <div data-index={n - 1}>
+          <img class="center-cropped" alt={String(n)} title={String(n)} src={imgSrc(n)} />
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <div id="lightbox" class="lightbox" hidden>
+    <button id="lightbox-close" class="lightbox-close" aria-label="Close">&times;</button>
+    <button id="lightbox-prev" class="lightbox-nav lightbox-prev" aria-label="Previous">&#8249;</button>
+    <img id="lightbox-img" class="lightbox-img" alt="" />
+    <button id="lightbox-next" class="lightbox-nav lightbox-next" aria-label="Next">&#8250;</button>
+  </div>
+</BaseLayout>
+
+<script define:vars={{ imgCount }}>
+  const imgSrc = (n) => `https://s3-ap-southeast-1.amazonaws.com/aunnnn.com/gallery/${n}.jpg`;
+
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  let currentIndex = 0;
+
+  const show = (index) => {
+    currentIndex = Math.max(0, Math.min(imgCount - 1, index));
+    lightboxImg.src = imgSrc(currentIndex + 1);
+    lightbox.hidden = false;
+  };
+
+  const close = () => {
+    lightbox.hidden = true;
+  };
+
+  document.querySelectorAll('.gallery [data-index]').forEach((el) => {
+    el.addEventListener('click', () => show(Number(el.dataset.index)));
+  });
+
+  document.getElementById('lightbox-close').addEventListener('click', close);
+  document.getElementById('lightbox-prev').addEventListener('click', () => show(currentIndex - 1));
+  document.getElementById('lightbox-next').addEventListener('click', () => show(currentIndex + 1));
+  lightboxImg.addEventListener('click', () => show(currentIndex + 1));
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) close();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (lightbox.hidden) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') show(currentIndex - 1);
+    if (e.key === 'ArrowRight') show(currentIndex + 1);
+  });
+</script>
+
+<style>
+  .gallery {
+    text-align: center;
+  }
+  .gallery div {
+    display: inline-block;
+  }
+  .center-cropped {
+    object-fit: cover;
+    object-position: center;
+    height: 160px;
+    width: 160px;
+    margin-right: .3em;
+    border: 1px solid #000;
+    background: white;
+    cursor: pointer;
+    opacity: 1.0;
+  }
+  .center-cropped:hover {
+    opacity: 0.8;
+  }
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  .lightbox[hidden] {
+    display: none;
+  }
+  .lightbox-img {
+    max-width: 90vw;
+    max-height: 90vh;
+    cursor: pointer;
+  }
+  .lightbox-close, .lightbox-nav {
+    position: absolute;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 2.5rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 8px 16px;
+  }
+  .lightbox-close {
+    top: 12px;
+    right: 12px;
+  }
+  .lightbox-prev {
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .lightbox-next {
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+</style>

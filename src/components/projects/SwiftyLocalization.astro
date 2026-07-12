@@ -1,0 +1,12 @@
+<div>
+  <h2>Swifty Localization</h2>
+  <p><a href="https://github.com/aunnnn/SwiftyLocalization">Github</a></p>
+  <p>Automates iOS localization starting from Google Sheets: export the sheets into CSV files, then generate Localizable.strings and Swift structs from them.</p>
+  <p>Localization on iOS is tedious. You have to add keys to the localization file and update them manually over time, then hard code the correct keys into <code>NSLocalizedString</code> wherever you use them.</p>
+  <p>Another problem is keeping the localization file in sync with your Android team. Imagine adding a new screen to an existing app: mobile engineers receive a set of new strings in different languages for that screen, usually in a PDF or Excel file. Each developer then has to convert them into their own platform's format (iOS or Android), copy and paste the text manually, and come up with their own localization keys. It's no surprise when something goes wrong in this process.</p>
+  <p>This project automates that process to make everyone's life easier. Use a Google Sheet as the single source of truth for localization, including the keys, and export it to CSV files with a Google Script. You can add comments, highlight text, or leave untranslated cells blank.</p>
+  <figure><img src="https://raw.githubusercontent.com/aunnnn/SwiftyLocalization/master/Screen%20Shot%202559-10-13%20at%201.56.55%20AM.png" /></figure>
+  <p>From those CSVs, a Python script on your laptop converts them into <code>Localizable.strings</code>, and then into Swift structs (<a href="https://github.com/aunnnn/SwiftyLocalization/blob/master/SampleOutput/struct/Localizables.swift">example</a>), ready to use. The script can easily be adapted for Android's XML format too.</p>
+  <p>Now you can't get localization keys wrong anymore, and you get autocompletion as a bonus!</p>
+  <p>Note that you can also use R.swift to generate the structs.</p>
+</div>

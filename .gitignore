@@ -1,6 +1,9 @@
 node_modules
 npm-debug.log
 .next
+out
+dist
+.astro
 TestSketch.js
 static/contents/images_original
 static/contents/images_copy

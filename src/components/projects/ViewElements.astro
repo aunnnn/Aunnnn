@@ -1,0 +1,70 @@
+<div>
+  <h2>ViewElements</h2>
+  <p>ViewElements is a framework to build UITableView with ease.</p>
+  <p><a href="https://github.com/aunnnn/ViewElements">Github repo</a></p>
+  <h3>Why?</h3>
+  <p>Nearly every iOS app has at least one UITableView. It displays a vertically scrollable list of elements called UITableViewCell. These cells are reused automatically as they move in and out of the screen, so displaying thousands of items is not a problem.</p>
+  <p>You can see this in most of Apple's built-in apps, like Settings.</p>
+  <div class="mobile-img">
+    <img src="https://s3-ap-southeast-1.amazonaws.com/aunnnn.com/work/assets/ve_settings.jpeg" />
+  </div>
+  <div class="center-caption">
+    <em>Most common (and default) appearance of UITableView</em>
+  </div>
+  <p>However, we shouldn't stop here. See these pages:</p>
+  <div class="custom-container">
+    <div class="images-column">
+      <div><img src="https://s3-ap-southeast-1.amazonaws.com/aunnnn.com/work/assets/ve-center.png" /></div>
+      <div><img src="https://s3-ap-southeast-1.amazonaws.com/aunnnn.com/work/assets/ve-medium-feed.png" /></div>
+      <div><img src="https://s3-ap-southeast-1.amazonaws.com/aunnnn.com/work/assets/ve-medium-post.png" /></div>
+    </div>
+  </div>
+  <div class="center-caption"></div>
+  <p>They are just rows of elements stacking together:</p>
+  <div class="custom-container">
+    <div class="images-column">
+      <div><img src="https://s3-ap-southeast-1.amazonaws.com/aunnnn.com/work/assets/ve-center-debug.png" /></div>
+      <div><img src="https://s3-ap-southeast-1.amazonaws.com/aunnnn.com/work/assets/ve-medium-feed-debug.png" /></div>
+      <div><img src="https://s3-ap-southeast-1.amazonaws.com/aunnnn.com/work/assets/ve-medium-post-debug.png" /></div>
+    </div>
+  </div>
+  <div class="center-caption">
+    <em>Debug mode</em>
+  </div>
+  <p>It's clear now that UITableView can be used to build any kind of page in an app, not just table views. Another huge advantage is that the cells are reused automatically.</p>
+  <p>However, creating a table view is a repetitive and tiresome task. It relies on the data source concept, so the code for the presentation layer ends up split across multiple functions (e.g., cellForRowAtIndexPath, heightForRowAtIndexPath, estimatedHeightForRowAtIndexPath). This makes the code harder to work with as it grows.</p>
+  <h3>Solution</h3>
+  <p>ViewElements simplifies the process of building a UITableView and reusing UITableViewCell. It lets developers declare arrays of rows so that the final appearance and order of the rows directly mirror the code. This keeps all the code for each row close together, making it easier to work with.</p>
+  <figure><img src="https://s3-ap-southeast-1.amazonaws.com/aunnnn.com/work/assets/ve_concept.png" /></figure>
+  <p>It also provides an API called Component for building a view by nesting UIStackViews together. This combines UITableView and UIStackView: the table view handles displaying and reusing cells vertically, while the stack view handles the UI inside each cell.</p>
+  <p>ViewElements wraps these complexities in data structures and provides APIs to construct a complete view. Once a view is set up, it can be reused anywhere through the provided API, and the built-in elements can already do a lot on their own!</p>
+  <p>Check this quick demo:</p>
+  <figure><img src="https://s3-ap-southeast-1.amazonaws.com/aunnnn.com/work/assets/ve-demo.gif" /></figure>
+  <div class="center-caption">
+    <em>A demo using built-in label elements. These are the only code to build what you see.</em>
+  </div>
+  <h3>What's Next</h3>
+  <p>This is a great solution for static pages in an app. However, dynamic pages and pages that interact with data, such as form inputs, need more than this.</p>
+  <p>I'm currently combining a reactive programming library called RxSwift with ViewElements to enable data-driven UI.</p>
+  <p><a href="https://github.com/aunnnn/RxViewElementsExperiment">Check out the experimental repo here.</a></p>
+  <h3>Lessons</h3>
+  <ul>
+    <li>An API designer has the power to guide developers in the right or wrong direction.</li>
+    <li>When it goes right, developers feel that a framework is intuitive. They can guess how it works, and what they should or shouldn't do, without consulting documentation.</li>
+    <li>Such a framework is usually designed to mirror real-world objects.</li>
+    <li>Throwing a fatal error is fine when developers are building apps with a framework, but using a language's syntax, static types, or compiler to prevent developers from writing invalid code in the first place is much more elegant.</li>
+  </ul>
+  <h3>Future</h3>
+  <ul>
+    <li>Many parts of iOS development are still imperative today. We have to do a lot of things manually, like structuring views in the app, handling events and UI updates, and managing the lifecycle.</li>
+    <li>I believe there will be more native frameworks and libraries that use a markup language (e.g., HTML) to construct native views.</li>
+    <li>React Native is great at building views and apps with JavaScript, but it won't be reliable enough to build high quality mobile applications on its own.</li>
+    <li>These tools will soon expand to cover other parts of app creation too, including networking, navigation, and user interactions.</li>
+    <li>As a result, there will eventually be a platform that lets anyone without technical knowledge create native apps.</li>
+    <li>I'm sure Apple has some kind of internal markup system that makes creating apps easy. Such a system would also let the UI, or the whole app, change dynamically over the internet.</li>
+  </ul>
+  <h3>Technical details</h3>
+  <ul>
+    <li>Implemented in Swift.</li>
+  </ul>
+</div>

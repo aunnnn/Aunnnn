@@ -1,0 +1,16 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title?: string;
+}
+
+const { title = 'Aunnnn' } = Astro.props;
+---
+
+<BaseLayout title={title} showHomeButton={false}>
+  <a class="back-button" href="/projects">Back to all projects</a>
+  <div class="project-detail">
+    <slot />
+  </div>
+</BaseLayout>

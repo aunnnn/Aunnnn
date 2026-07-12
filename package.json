@@ -1,55 +1,15 @@
 {
   "name": "Aunnnn_",
+  "type": "module",
   "scripts": {
-    "dev": "node server.js",
-    "build": "next build",
-    "start": "NODE_ENV=production node server.js"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
   },
   "dependencies": {
-    "create-react-class": "^15.6.3",
-    "moment": "^2.24.0",
-    "next": "^9.2.2",
-    "next-routes": "^1.4.2",
-    "next-server": "^9.0.5",
-    "nprogress": "^0.2.0",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-ga": "^2.5.3",
-    "react-images": "^0.5.19",
-    "react-tinymce-input": "^2.1.0"
+    "astro": "^7.0.7"
   },
   "devDependencies": {
-    "babel-eslint": "^8.2.6",
-    "eslint": "^4.19.1",
-    "eslint-config-airbnb": "^16.1.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jsx-a11y": "^6.1.1",
-    "eslint-plugin-react": "^7.11.1"
-  },
-  "eslintConfig": {
-    "parser": "babel-eslint",
-    "extends": "airbnb",
-    "globals": {
-      "document": true,
-      "window": true,
-      "process": true
-    },
-    "rules": {
-      "import/extensions": 0,
-      "import/no-extraneous-dependencies": 0,
-      "import/no-unresolved": 0,
-      "react/jsx-filename-extension": [
-        1,
-        {
-          "extensions": [
-            ".js",
-            ".jsx"
-          ]
-        }
-      ],
-      "react/react-in-jsx-scope": 0,
-      "react/sort-comp": 0,
-      "linebreak-style": 0
-    }
+    "wrangler": "^4.110.0"
   }
 }

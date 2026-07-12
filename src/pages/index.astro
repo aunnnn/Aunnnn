@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const menus = [
+  { path: '/images', title: 'images,' },
+  { path: '/projects', title: 'projects,' },
+  { path: '/more', title: 'more' },
+];
+---
+
+<BaseLayout showHomeButton={false}>
+  <div class="menu">
+    <ul>
+      {menus.map(({ path, title }) => (
+        <li><a href={path}>{title}</a></li>
+      ))}
+    </ul>
+  </div>
+</BaseLayout>
+
+<style>
+  ul {
+    list-style: none;
+  }
+  li {
+    display: inline;
+    padding: 0 12px 0 0;
+  }
+  li a {
+    color: #303030;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  li a:hover {
+    color: #303030;
+    background-color: yellow;
+  }
+</style>

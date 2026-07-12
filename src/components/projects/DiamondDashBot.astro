@@ -1,0 +1,13 @@
+<div>
+  <h2>Diamond Dash Bot</h2>
+  <p>A bot that plays the Diamond Dash game. The goal is to click on groups of three or more adjacent blocks as often as possible:</p>
+  <figure><img src="https://78.media.tumblr.com/0ca0d621eec65fc00760f0216688d41d/tumblr_oi5wwrCJxz1vl9qmgo1_r2_400.gif" /></figure>
+  <p>This is my earliest side project, and also my proudest. I was hooked on the idea that we can build something that performs at a level we could never reach ourselves.</p>
+  <h3>Technical details</h3>
+  <ul>
+    <li>Implemented in Java.</li>
+    <li>On start, you move a fixed-size window to match the game screen in the browser. The program then takes control of the mouse (moving and clicking) for one minute after the game starts. It reads every pixel in the window to build a data structure representing the board at each moment.</li>
+    <li>It scans the top-left block first, then zigzags down to the last block.</li>
+    <li>For each block, it checks its four neighbors (up, down, left, right) to see if any share the same color. If one does, it marks the starting block as "checked" and repeats the process on that neighbor. When this reaches a dead end, it returns and recursively accumulates the count from all neighbors back to the original block. If that final count of adjacent blocks is three or more, the block gets clicked.</li>
+  </ul>
+</div>

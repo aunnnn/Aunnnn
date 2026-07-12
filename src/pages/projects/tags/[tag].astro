@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { categories, projectsInfo } from '../../../data/projects.js';
+
+export function getStaticPaths() {
+  return categories.map(tag => ({ params: { tag } }));
+}
+
+const { tag } = Astro.params;
+const catIndex = categories.indexOf(tag);
+const filteredProjects = projectsInfo.filter(p => p.categories.includes(catIndex));
+---
+
+<BaseLayout title={`Projects - ${tag}`} pageTitle={`Projects - ${tag}`}>
+  <div class="main">
+    <a class="back-button" href="/projects">Back to all projects</a>
+    <ul>
+      {filteredProjects.map((o) => (
+        <li>
+          <div class="project-info">
+            {o.url ? (
+              <a href={o.url}>{o.title}</a>
+            ) : o.keyword ? (
+              <a href={`/projects/${o.keyword.toLowerCase()}`}>{o.title}</a>
+            ) : (
+              <span>{o.title}</span>
+            )}
+            <p class="subtitle">{o.subtitle}</p>
+            <p class="category-list">
+              {o.categories.map((c) => (
+                <a href={`/projects/tags/${categories[c]}`} class="tag">
+                  {categories[c]}
+                </a>
+              ))}
+            </p>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+</BaseLayout>
+
+<style>
+  ul {
+    margin: 2px 0 0 0;
+    list-style: none;
+  }
+  .project-info * {
+    display: block;
+    font-family: "HelveticaNeue-Light", Helvetica;
+  }
+  .project-info .subtitle, .category-list {
+    margin: 0 0 0 20px;
+  }
+  .project-info a {
+    color: #404040;
+    padding: 0;
+    font-size: 1.2em;
+    text-decoration: none;
+  }
+  .subtitle {
+    font-size: 1em;
+    color: gray;
+  }
+  .category-list {
+    font-size: 0.7em;
+  }
+  .main {
+    margin-bottom: 40px;
+  }
+  .main .back-button {
+    text-decoration: none;
+    font-size: 14px;
+    color: silver !important;
+    margin-bottom: 22px;
+    display: block;
+  }
+  .main .back-button:hover {
+    color: blue !important;
+  }
+  .tag {
+    color: silver;
+    margin: 0 4px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .tag:hover {
+    color: gray;
+  }
+  @media (min-width: 801px) {
+    .project-info * {
+      display: inline-block;
+    }
+  }
+</style>

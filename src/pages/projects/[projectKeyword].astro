@@ -1,0 +1,44 @@
+---
+import ProjectLayout from '../../layouts/ProjectLayout.astro';
+import StudioLive from '../../components/projects/StudioLive.astro';
+import QuickThaiNews from '../../components/projects/QuickThaiNews.astro';
+import CORS from '../../components/projects/CORS.astro';
+import CreativeSwift from '../../components/projects/CreativeSwift.astro';
+import DiamondDashBot from '../../components/projects/DiamondDashBot.astro';
+import SpaceBoxer from '../../components/projects/SpaceBoxer.astro';
+import ViewElements from '../../components/projects/ViewElements.astro';
+import HoverExplorer from '../../components/projects/HoverExplorer.astro';
+import Platonos from '../../components/projects/Platonos.astro';
+import EmojiFaces from '../../components/projects/EmojiFaces.astro';
+import AppStore from '../../components/projects/AppStore.astro';
+import CSE256 from '../../components/projects/CSE256.astro';
+import SwiftyLocalization from '../../components/projects/SwiftyLocalization.astro';
+import { detailPageKeywords } from '../../data/projects.js';
+
+export function getStaticPaths() {
+  return detailPageKeywords.map(key => ({ params: { projectKeyword: key } }));
+}
+
+const componentMap = {
+  studiolive: StudioLive,
+  quickthainews: QuickThaiNews,
+  cors: CORS,
+  creativeswift: CreativeSwift,
+  diamonddashbot: DiamondDashBot,
+  spaceboxer: SpaceBoxer,
+  viewelements: ViewElements,
+  hoverexplorer: HoverExplorer,
+  platonos: Platonos,
+  emojifaces: EmojiFaces,
+  appstore: AppStore,
+  cse256: CSE256,
+  swiftylocalization: SwiftyLocalization,
+};
+
+const { projectKeyword } = Astro.params;
+const ProjectContent = componentMap[projectKeyword];
+---
+
+<ProjectLayout>
+  <ProjectContent />
+</ProjectLayout>

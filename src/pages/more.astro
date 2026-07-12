@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const links = [
+  { logo: 'linkedin.svg', alt: 'linkedin', url: 'https://www.linkedin.com/in/wirawit-rueopas-437518120/' },
+  { logo: 'medium.svg', alt: 'medium', url: 'https://medium.com/@aunnnn' },
+  { logo: 'github.svg', alt: 'github', url: 'https://github.com/aunnnn' },
+  { logo: 'stackoverflow.svg', alt: 'stackoverflow', url: 'https://stackoverflow.com/users/6666165/aunnnn' },
+];
+---
+
+<BaseLayout title="More" pageTitle="More">
+  <div class="main">
+    <ul>
+      {links.map(({ logo, alt, url }) => (
+        <li>
+          <a class="link-logo" id={alt} href={url}>
+            <img src={`/static/assets/${logo}`} alt={alt} />
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</BaseLayout>
+
+<style>
+  .main {
+    margin-top: 20px;
+  }
+  ul {
+    list-style: none;
+    margin-bottom: 0;
+  }
+  li {
+    display: inline;
+  }
+  .link-logo {
+    padding: 12px;
+  }
+  .link-logo:hover {
+    opacity: 0.5;
+  }
+  .link-logo img {
+    width: 28px;
+    height: 28px;
+  }
+</style>

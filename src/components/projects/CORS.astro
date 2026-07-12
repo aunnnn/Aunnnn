@@ -1,0 +1,30 @@
+<div>
+  <h2>A Corner-based Saliency Model</h2>
+  <p>A bottom-up computational visual attention model built on a simple but intriguing hypothesis: our eyes usually <strong>rest on areas with abrupt changes in color</strong>, which I call corners.</p>
+  <p>I turned this idea into a visual saliency prediction model.</p>
+  <p>This is the sample result:</p>
+  <figure><img src="https://s3-ap-southeast-1.amazonaws.com/aunnnn.com/work/assets/cors-sample-result.png" /></figure>
+  <p><a href="https://github.com/aunnnn/CORSaliency">Github repo</a></p>
+  <p><a href="https://github.com/aunnnn/CORSaliency/raw/master/07748907.pdf">Paper</a>, <a href="https://github.com/aunnnn/CORSaliency/raw/master/snr%20proj%20final%20report.pdf">Full thesis</a>, <a href="https://www.youtube.com/watch?v=MSMlsaBjJ5s">Presentation video</a>, <a href="">Slides</a></p>
+  <h3>General Problem</h3>
+  <p>The field of <strong>computational visual attention</strong> tries to find algorithms that predict where we look. The general model takes an image as input and returns a grayscale map that indicates how much attention people will pay to each pixel. This field is very multidisciplinary, drawing on approaches from information theory, computer science, biology, psychology, and more.</p>
+  <h3>Overview</h3>
+  <p>There are two types of visual attention models: bottom-up and top-down.</p>
+  <p><strong>Bottom-up</strong> models deal with low-level features such as luminosity, color, and orientation. Imagine a single red dot on a white paper. Your eyes are drawn to that area immediately. The dot "pops out" and you can't help but look at it, as if our eyes and brains are wired that way. Another example is a paper filled with a pattern of vertical bars where one bar is horizontal. Your eyes are drawn to the horizontal one.</p>
+  <p><strong>Top-down</strong> models deal with high-level features that come from the individual and differ from person to person, like internal goals. They're much more complicated than bottom-up models. For example, if a paper is filled with dots of various colors and you're told to count the blue ones, your brain becomes "primed" to detect that single color.</p>
+  <p>A unified model would address both low-level and high-level features, but such an algorithm is still hard to find today. There's little existing research in psychology or biology to base the model on, so most papers run various experiments hoping to uncover the secret sauce behind the mechanism.</p>
+  <h3>My contribution</h3>
+  <p>I propose a <em>bottom-up</em> model called the corner-based saliency model, or CORS. It's based on the fact that corner information often attracts our eyes.</p>
+  <p>Try looking at a line. Did you spend the same amount of time on each segment of it? Probably not. You likely looked quickly at the starting and ending points, since the middle section isn't as important to you. I call these areas corners; for a rectangle, they're its four corners. Or look around where you are right now and notice how your eyes tend to rest on areas with abrupt changes in color or intensity.</p>
+  <p>CORS detects corners in an image and treats them as the areas with the highest visual attention. According to the MIT Saliency Benchmark, this simple idea turned out to be <a href="">competitive</a>.</p>
+  <h3>What I learned</h3>
+  <ul>
+    <li>Unlike software engineering, where we can estimate progress as we work, research is unpredictable, especially when the goal is to find something new.</li>
+    <li>It's easy to fool yourself into thinking you're making progress just by reviewing more and more past work. I spent more than <strong>90 percent</strong> of my time reading others' papers, and kept going until the deadline was only a couple of weeks away. That's when I realized I needed to stop and focus on my own model.</li>
+    <li>Most of the time, a great idea turns out not to work in some particular case. There are endless edge cases to cover in this field, since our brains are so complex.</li>
+    <li>A number of approaches nowadays use deep learning instead, since it lets researchers focus on higher-level problems rather than fine-tuning every detail.</li>
+    <li>Sometimes you can't tell whether an idea is wrong or just needs more polishing.</li>
+    <li>The evaluation metrics used in this field can be flawed, so you need to understand how they work first. There are various tricks to inflate a model's benchmark score. For example, a saliency map with a big white blob in the center usually scores well on most test images.</li>
+    <li>This project took me a full year, so it's easily my proudest achievement so far!</li>
+  </ul>
+</div>

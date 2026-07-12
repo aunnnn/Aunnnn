@@ -1,0 +1,29 @@
+<div>
+  <h2>Platonos</h2>
+  <p>Real-time messaging platform where all chats are public. The live site is no longer online.</p>
+  <p><em>Home:</em></p>
+  <figure><img src="https://s3-ap-southeast-1.amazonaws.com/aunnnn.com/work/assets/platonos-preview.png" /></figure>
+  <p><em>Chat:</em></p>
+  <figure><img src="https://s3-ap-southeast-1.amazonaws.com/aunnnn.com/work/assets/platonos-preview-2.png" /></figure>
+  <h3>Why?</h3>
+  <p>The motivation behind this website is to encourage deeper conversations between people on the internet.</p>
+  <p>We do this by focusing on two aspects of the platform. First, all users are anonymous, which strips away the social constraints that keep people from sharing honest thoughts. Second, the platform automatically picks a random user and invites them to chat, reducing the number of steps needed to start a conversation down to just one: creating a topic.</p>
+  <p>Why does this matter? There's a term on the internet called <em>lurkers</em>, referring to members of an online community who observe but don't participate. The ratio of lurkers seems to be <a href="https://en.wikipedia.org/wiki/1%25_rule_(Internet_culture)">huge</a>, and there's nothing wrong with that. They may just want to consume information, or they might feel they need to learn about the community first before contributing.</p>
+  <p>While these are all valid reasons, I believe that most of the time they come down to fear: the fear that comes from having the option <em>to escape</em>. The best way to resolve that fear is to limit the number of choices people can make. Let the system decide instead, so users don't have to think much because it's already part of the process.</p>
+  <h4>How it works</h4>
+  <ol>
+    <li>An author creates a topic.</li>
+    <li>A random match is invited.</li>
+    <li>The match either accepts or rejects the invitation. If they accept, the talk starts immediately. If they reject it, another user is invited.</li>
+    <li>They talk.</li>
+    <li>The talk ends when any participant ends it.</li>
+  </ol>
+  <p>The fun part is that since every chatroom was public, anyone could click into one to watch the conversation happen live, like watching other people's real-time messages.</p>
+  <h3>Technical Details</h3>
+  <ul>
+    <li>Use <a href="https://github.com/zeit/next.js">Next.js</a> to build the frontend with React.</li>
+    <li>Use <a href="https://github.com/apollographql/apollo-client">Apollo</a> as a GraphQL client.</li>
+    <li>Use <a href="https://github.com/graphcool">Graphcool</a> for GraphQL-powered backend.</li>
+    <li>The random-match algorithm is simple at this stage. It first filters out anyone who hasn't been active in the last 3 days, then sorts the rest by their last invited date and picks whoever hasn't been invited for the longest time.</li>
+  </ul>
+</div>
