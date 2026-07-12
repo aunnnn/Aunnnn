@@ -2,13 +2,13 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const menus = [
-  { path: '/images', title: 'images,' },
+  { path: '/art', title: 'art,' },
   { path: '/projects', title: 'projects,' },
   { path: '/more', title: 'more' },
 ];
 ---
 
-<BaseLayout showHomeButton={false}>
+<BaseLayout>
   <div class="menu">
     <ul>
       {menus.map(({ path, title }) => (

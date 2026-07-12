@@ -2,10 +2,9 @@
 interface Props {
   title?: string;
   pageTitle?: string;
-  showHomeButton?: boolean;
 }
 
-const { title = 'Aunnnn', pageTitle, showHomeButton = true } = Astro.props;
+const { title = 'Aunnnn', pageTitle } = Astro.props;
 ---
 
 <html lang="en">
@@ -52,16 +51,13 @@ const { title = 'Aunnnn', pageTitle, showHomeButton = true } = Astro.props;
         <a href="/">
           <img
             src="/static/assets/logo_closeup.jpg"
-            style="width:70px;height:70px;display:inline;vertical-align:bottom;"
+            style="width:44px;height:44px;display:inline;vertical-align:bottom;"
             alt="logo"
           />
           <span>aunnnn</span>
         </a>
+        {pageTitle && <span class="page-title"> / {pageTitle}</span>}
       </div>
-      {showHomeButton && (
-        <a class="back-button" href="/">Back to Home</a>
-      )}
-      {pageTitle && <h3><strong>{pageTitle}</strong></h3>}
       <slot />
     </div>
   </body>

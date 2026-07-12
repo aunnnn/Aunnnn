@@ -16,6 +16,12 @@
 .logo img {
   background-color: white;
 }
+.page-title {
+  font-weight: normal;
+  color: #888;
+  font-size: 20px;
+  font-family: 'Trebuchet MS';
+}
 
 /* Back button (used on Page, ProjectBasePage) */
 .back-button {
